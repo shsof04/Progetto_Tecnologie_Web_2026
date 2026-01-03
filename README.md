@@ -19,3 +19,8 @@ sicurezza: protezione password, accessibilità limitata agli studenti iscritti a
 
 
 # Esempi di personas e scenarios:
+
+
+# EFFETTO WOW
+
+i professori sembrano familiari
