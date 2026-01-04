@@ -1,0 +1,52 @@
+body, h1, ul{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-color: #fff;
+}
+
+aside ul{
+	list-style: none;
+}
+
+aside{
+	background-color: #fff;
+	border: 1px solid #cacaca;
+	margin: 0 5%;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+aside > section{
+	padding: 0 10% 20px;
+}
+
+aside > section > ul{
+	list-style: none;
+}
+
+aside > section > ul > li{
+	margin-bottom: 10px;
+}
+
+aside > section > ul > li > a{
+	text-decoration: none;
+}
+
+aside > section > ul > li > a:hover{
+    color: rgb(219,69,83);
+}
+
+aside > section > ul > li > img{
+	width: 50px;
+}
+
+
+@media screen and (min-width: 768px){
+
+	main, aside{
+		display: inline-block;
+		vertical-align: top;
+	}
+}
