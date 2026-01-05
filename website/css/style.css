@@ -193,25 +193,3 @@ footer{
 	}
 }
  
-
-
-
-/*
-@media screen and (min-width: 768px){
-
-	main, aside{
-		display: inline-block;
-		vertical-align: top;
-	}
-
-	main {
-		width: 50%;
-	}
-	
-	aside {
-		width: 25%;
-		margin: 68px 10% 0 5%;
-		box-sizing: border-box;
-	}
-}
-*/
