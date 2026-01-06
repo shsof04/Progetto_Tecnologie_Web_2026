@@ -14,6 +14,10 @@ header{
 	font-size: 20px; 
 }
 
+aside, form{
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 header > h1{ /*SISTEMARE CON L'IMMAGINE*/
 	padding: 10px;
 }
@@ -75,7 +79,6 @@ h2::before{
 
 body{
 	background-color: #f8f5f5;
-
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -116,16 +119,58 @@ table tr td a:hover{
 	font-style: oblique; 
 }
 
-aside ul{
+form{
+    padding: 40px 5% 20px;
+}
+
+form ul{
+    width: 80%;
+    margin: 0 10%;
+}
+
+form ul li{
+    margin-bottom: 20px;
+}
+
+form ul li:last-child{
+    text-align: right;
+}
+
+form ul li label{
+    display: inline-block;
+    width: 50%;
+    cursor: pointer;
+}
+
+form ul li input:not([type="submit"]){
+    width: 50%;
+    box-sizing: border-box;
+}
+
+form ul li input[type="submit"]{
+	border-width: 1px;
+	cursor: pointer;
+}
+
+aside ul, form ul{
 	list-style: none;
 }
+
+
+/*form input[type="submit"]{    SISTEMARE I BOTTONI CON SOFI
+	color: #000;
+	background-color: #e4e4e4;
+	text-decoration: none;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	padding: 5px 10px;
+	border-radius: 5px;
+}*/
 
 aside{
 	background-color: #f8f5f5;
 	border: 10px solid #ce0303;
 	width: 260px;
 	margin: 10px 2% 0;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 aside a, footer a{
@@ -166,7 +211,6 @@ footer{
 	width: 100%;
 	color: #000;
 	background: linear-gradient(0deg, #ce0303, #f8f5f5);
-
 	padding: 30px 0 20px;
 	margin-top: auto;
 }
