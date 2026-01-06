@@ -95,7 +95,7 @@ main, footer h3, footer ul{
 	margin-left: 2%;
 }
 
-main > section:first-of-type{
+main > section > form{
 	text-align: right;
 }
 
@@ -155,7 +155,7 @@ form ul li input[type="submit"]{
 	cursor: pointer;
 }
 
-aside ul, form ul{
+aside ul, form ul, section ul{
 	list-style: none;
 }
 
