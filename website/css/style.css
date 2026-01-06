@@ -165,7 +165,6 @@ aside ul, form ul, section ul{
 }*/
 
 main > section > form{
-	text-align: left;
 	padding: 40px 0 0;
 }
 
@@ -226,6 +225,36 @@ footer{
 	background: linear-gradient(0deg, #ce0303, #f8f5f5);
 	padding: 30px 0 20px;
 	margin-top: auto;
+}
+
+.rating {
+    direction: rtl;               /* stelle da destra a sinistra */
+    unicode-bidi: bidi-override;
+}
+
+.rating input {
+    display: none;                /* nasconde i radio */
+}
+
+.rating label {
+    color: #fff;                  /* stella vuota bianca */
+    -webkit-text-stroke: 1px #000; /* contorno nero */
+    cursor: pointer;
+}
+
+/* Hover */
+.rating label:hover, .rating label:hover ~ label {
+    -webkit-text-stroke: 1px #ce0303;       /* rimuove contorno sul rosso */
+}
+
+/* Selezionata */
+.rating input:checked ~ label {
+    color: #ce0303;               
+    -webkit-text-stroke: 0;
+}
+
+.heading {
+	margin-right: 15px;
 }
 
 @media screen and (min-width: 768px){

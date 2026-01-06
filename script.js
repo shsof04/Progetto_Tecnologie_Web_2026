@@ -25,3 +25,13 @@ input.addEventListener("input", () => {
   );
   render(filtered);
 });
+
+
+
+
+
+
+
+/*PER LE STELLE */
+  
+
