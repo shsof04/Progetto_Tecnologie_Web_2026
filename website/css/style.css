@@ -127,7 +127,7 @@ form ul{
     margin: 0 10%;
 }
 
-form ul li{
+main > form ul li{
     margin-bottom: 20px;
 }
 
@@ -166,11 +166,19 @@ aside ul, form ul, section ul{
 
 main > section > form{
 	text-align: left;
-	padding: 40px 5% 20px;
+	padding: 40px 0 0;
 }
 
 main > section > form > ul{
 	margin: 0;
+}
+
+main > section > form ul li{
+	font-size: small;
+}
+
+main > section > form ul li{
+    margin-bottom: 15px;
 }
 
 aside{
