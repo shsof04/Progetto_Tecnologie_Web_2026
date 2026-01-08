@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UniboRankings - Corsi</title>
     <link rel="stylesheet" href="./css/style.css" />
@@ -18,10 +19,11 @@
             <h2>Corsi Correnti:</h2>
         
             <section>
-                <form>
-                    <input type="text" placeholder="Cerca Corso" />
-                    <button type="search">Cerca</button> 
+                <form class="search-bar" role="search">
+                    <input id="search" type="search" placeholder="Cerca Corso" />
+                    <button type="submit" class="search-btn">Cerca</button>
                 </form>
+
                 <ul id="results"></ul>
             </section>
 

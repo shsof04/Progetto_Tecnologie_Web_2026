@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UniboRankings - Profilo</title>
     <link rel="stylesheet" href="./css/style.css" />
@@ -15,30 +16,33 @@
     <div class="layout">
         <main>
             <h2>Profilo</h2>
-            <section>
+
+            <section class="profile-head">
                 <ul>
-                    <li><img src="#" alt="" /></li>
-                    <li>Blasco Pulieri - blasco.pulieri@studio.unibo.it</li>
+                    <li><img class="profile-avatar" src="https://www.ritagiorgi.it/wp-content/uploads/2019/12/Blasco-Pulieri-400x500_c.jpg" alt="" /></li>
+                    <li class="profile-name">Blasco Pulieri<br><span class="profile-email">blasco.pulieri@studio.unibo.it</span></li>
                 </ul>
             </section>
+
             <section>
-                <form action="#" method="POST">
+                <form class="form" action="#" method="POST">
                     <ul>
                         <li>
-                            <label for="password">Password attuale:</label><input type="password" id="password" name="password" />
+                            <label for="password">Password Attuale:</label><input type="password" id="password" name="password" />
                         </li>
                         <li>
-                            <label for="passwordnew">Nuova password:</label><input type="password" id="passwordnew" name="passwordnew" />
+                            <label for="passwordnew">Nuova Password:</label><input type="password" id="passwordnew" name="passwordnew" />
                         </li>
                         <li>
-                            <label for="passwordnew">Conferma nuova password:</label><input type="password" id="passwordnew" name="passwordnew" />
+                            <label for="passwordconfirm">Conferma Nuova Password:</label><input type="password" id="passwordconfirm" name="passwordconfirm" />
                         </li>
                         <li>
-                            <input type="submit" name="submit" value="Aggiorna Password" />
+                            <input class="button" type="submit" name="submit" value="Aggiorna Password" />
                         </li>
                     </ul>
                 </form>
             </section>
+
         </main>
         <aside>
             <section>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UniboRankings - Home</title>
     <link rel="stylesheet" href="./css/style.css" />
@@ -16,28 +17,13 @@
     <div class="layout">
         <main>
             <h2>Classifica Professori</h2>
-        <!--
-            <form class="search-bar" role="search">
-        <label for="search" class="sr-only">Cerca professore</label>
-        <input id="search" type="search" placeholder="Cerca Professore" />
-        <button type="submit">Cerca</button>
-        </form>
-
-        <div class="search-container">
-            <form action="/action_page.php">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-
-        https://www.w3schools.com/howto/howto_css_searchbar.asp
-        -->
-
+        
             <section>
-                <form>
-                    <input type="text" placeholder="Cerca Professore" />
-                    <button type="search">Cerca</button> 
+                <form class="search-bar" role="search">
+                    <input id="searchcourse" type="search" placeholder="Cerca Professore" />
+                    <button type="submit" class="search-btn">Cerca</button>
                 </form>
+
                 <ul id="results"></ul>
             </section>
             <section>
@@ -73,6 +59,7 @@
                 </table>
             </section>
         </main>
+
         <aside>
             <section>
                 <ul>
@@ -86,7 +73,9 @@
                 <a href="login.html">Logout</a>
             </section>
         </aside>
+
     </div>
+
     <footer>
         <h3>Contatti:</h3>
         <ul>
