@@ -164,6 +164,8 @@ aside ul, form ul, section ul{
 	border-radius: 5px;
 }*/
 
+
+
 main > section > form{
 	padding: 40px 0 0;
 }
@@ -179,6 +181,7 @@ main > section > form ul li{
 main > section > form ul li{
     margin-bottom: 15px;
 }
+
 
 aside{
 	width: 260px;
@@ -227,6 +230,7 @@ footer{
 	margin-top: auto;
 }
 
+/*Valutazione in stelle nella pagina review*/
 .rating {
     direction: rtl;               /* stelle da destra a sinistra */
     unicode-bidi: bidi-override;
@@ -293,6 +297,9 @@ footer{
 }
  
 
+
+
+/*Riquadri recensioni nella pagina dei docenti*/
 .reviews{
   margin-top: 12px;
 }
@@ -331,22 +338,3 @@ footer{
   .review-head{ flex-direction: column; }
 }
 
-
-/*
-main > section{
-  margin-top: 12px;
-}
-
-main > section{
-  border: 2px solid #ce0303;
-  border-left-width: 10px;
-  border-radius: 8px;
-  background: #fff;
-  padding: 12px 14px;
-  margin: 12px 0;
-}
-
-@media (max-width: 480px){
-  main > section > header { flex-direction: column; }
-}
-*/
