@@ -446,8 +446,3 @@ footer{
 .review-text{
   margin: 0;
 }
-
-@media (max-width: 480px){
-  .review-head{ flex-direction: column; }
-}
-
