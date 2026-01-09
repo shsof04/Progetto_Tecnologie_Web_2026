@@ -229,8 +229,8 @@ aside ul, form ul, section ul{
   font-size: 15px;
 }
 
-/*Sezione cambia password*/
-.form{
+/*Sezione cambia password, login e review*/
+.form, fieldset{
   background: #f8f5f5;
   border: 2px solid #ce0303;
   border-radius: 8px;
@@ -278,13 +278,14 @@ aside ul, form ul, section ul{
 .button:hover{
   color: #ce0303;
 }
+
 .form li:last-child{
-align-items: center;
+  align-items: center;
 }
 
 .form li:last-child .button{
     width: 60%; 
-  }
+}
 
 /* desktop: label a sinistra, input a destra */
 @media screen and (min-width: 768px){
@@ -299,9 +300,6 @@ align-items: center;
 .section-login {
 	margin-top: 20px;
 }
-
-
-
 
 aside{
 	width: 260px;
@@ -395,7 +393,7 @@ footer{
 	} 
 
 	nav{
-        margin: 0 10%;
+      margin: 0 10%;
     }
 
 	nav ul li{
@@ -415,16 +413,13 @@ footer{
     padding: 10px 0;
 	}
 }
- 
 
-
-
-/*Riquadri recensioni nella pagina dei docenti*/
-.reviews{
+/*Riquadri recensioni nelle pagine dei docenti e review*/
+.reviews, fieldset{
   margin-top: 12px;
 }
 
-.review{
+.review, fieldset{
   border: 2px solid #ce0303;
   border-left-width: 10px;
   border-radius: 8px;
