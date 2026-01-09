@@ -332,6 +332,10 @@ fieldset textarea{
     cursor: pointer;
 }
 
+.rating label.fa:before{
+  content: "\f006"; /* fa-star-o (vuota) */
+}
+
 /* Hover */
 .rating label:hover, .rating label:hover ~ label {
     -webkit-text-stroke: 1px #ce0303;       /* rimuove contorno sul rosso */
@@ -339,9 +343,13 @@ fieldset textarea{
 
 /* Selezionata */
 .rating input:checked ~ label {
-    color: #ce0303;          
-    -webkit-text-stroke: 0;
+    color: #ce0303;         
 }
+
+.rating input:checked ~ label:before{  
+	-webkit-text-stroke: 1px #ce0303; 
+	content:"\f005"; 
+}  
 
 
 @media screen and (min-width: 768px){

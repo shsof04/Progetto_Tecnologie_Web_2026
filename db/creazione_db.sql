@@ -60,5 +60,7 @@ CREATE TABLE IF NOT EXISTS recensione (
   CONSTRAINT fk_rec_prof FOREIGN KEY (professore_id) REFERENCES professore(id)
     ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT fk_rec_corso FOREIGN KEY (corso_id) REFERENCES corso(id)
-    ON DELETE CASCADE ON UPDATE CASCADE
+    ON DELETE CASCADE ON UPDATE CASCADE,
+    
+    UNIQUE (utente_id, professore_id, corso_id, anno_accademico)
 ) ENGINE=InnoDB;
