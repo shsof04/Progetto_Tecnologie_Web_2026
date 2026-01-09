@@ -3,8 +3,15 @@ body, h1, ul, header{
 	padding: 0;
 }
 
-section, footer, .form, .button{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+/* controlli e bottoni */
+input, button, textarea, select{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+ul{ 
+	list-style: none; 
+	padding: 0; 
+	margin: 0; 
 }
 
 header{
@@ -14,9 +21,6 @@ header{
 	font-size: 20px; 
 }
 
-aside, form{
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
 
 header > h1{ /*SISTEMARE CON L'IMMAGINE*/
 	padding: 10px;
@@ -26,9 +30,6 @@ nav{
     margin: 10px 5% 20px;
 }
  
-nav ul{
-    list-style: none;
-}
 
 nav ul li{
     display: inline-block;  
@@ -63,7 +64,11 @@ nav ul li a:hover{
 	font-weight: bold;
 }
 
-h2 {
+h3{
+	font-size: 22px;
+}
+
+h2, h3 {
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -72,7 +77,7 @@ h2 {
   margin: 18px 0 10px;
 }
 
-h2::before{
+h2::before, h3::before{
   content: "";
   width: 10px;
   height: 28px;
@@ -85,6 +90,7 @@ body{
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 main {
@@ -114,59 +120,9 @@ table tr:first-child{
 	color: #fff;
 }
 
-table tr td a:hover{ 
+table tr td a:hover, .listexams a:hover{ 
 	font-style: oblique; 
 }
-
-
-/*
-main > form{
-    padding: 40px 5% 20px;
-}
-
-form ul{
-    width: 80%;
-    margin: 0 10%;
-}
-
-main > form ul li{
-    margin-bottom: 20px;
-}
-
-main > form ul li:last-child{
-    text-align: right;
-}
-
-form ul li label{
-    display: inline-block;
-    width: 50%;
-    cursor: pointer;
-}
-
-form ul li input:not([type="submit"]){
-    width: 50%;
-    box-sizing: border-box;
-}
-
-form ul li input[type="submit"]{
-	border-width: 1px;
-	cursor: pointer;
-}
-
-*/
-
-aside ul, form ul, section ul{
-	list-style: none;
-}
-
-/*form input[type="submit"]{    SISTEMARE I BOTTONI CON SOFI
-	color: #000;
-	background-color: #e4e4e4;
-	text-decoration: none;
-	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-	padding: 5px 10px;
-	border-radius: 5px;
-}*/
 
 /*INPUT + BOTTONE CERCA*/
 /* barra ricerca: input + bottone affiancati */
@@ -204,6 +160,7 @@ aside ul, form ul, section ul{
 }
 
 
+
 /* Profilo */
 .profile-head ul{
   display: flex;
@@ -230,7 +187,7 @@ aside ul, form ul, section ul{
 }
 
 /*Sezione cambia password, login e review*/
-.form, fieldset{
+.form{
   background: #f8f5f5;
   border: 2px solid #ce0303;
   border-radius: 8px;
@@ -349,9 +306,20 @@ footer{
 }
 
 /*Valutazione in stelle nella pagina review*/
+fieldset textarea{
+	margin-top: 6px;
+}
+.rating-wrapper{
+  display: flex;
+  justify-content: flex-start; /* a sinistra */
+  width: 100%;
+  margin-top: 10px;
+  gap: 5px;
+}
+
 .rating {
-    direction: rtl;               /* stelle da destra a sinistra */
-    unicode-bidi: bidi-override;
+	direction: rtl; /* stelle da destra a sinistra */ 
+    unicode-bidi: bidi-override; 
 }
 
 .rating input {
@@ -371,13 +339,10 @@ footer{
 
 /* Selezionata */
 .rating input:checked ~ label {
-    color: #ce0303;               
+    color: #ce0303;          
     -webkit-text-stroke: 0;
 }
 
-.heading {
-	margin-right: 15px;
-}
 
 @media screen and (min-width: 768px){
 
@@ -389,6 +354,7 @@ footer{
 
 	main{ 
 		flex: 1; /* riempie tutto lo spazio a sinistra */ 
+		min-width: 0;
 		margin-left: 1%; /* se vuoi mantenere il tuo spazio */ 
 	} 
 
@@ -415,9 +381,6 @@ footer{
 }
 
 /*Riquadri recensioni nelle pagine dei docenti e review*/
-.reviews, fieldset{
-  margin-top: 12px;
-}
 
 .review, fieldset{
   border: 2px solid #ce0303;
@@ -428,16 +391,20 @@ footer{
   margin: 12px 0;
 }
 
-.review-head{
-  display: flex;
-  gap: 10px;
-}
-
 .review-date{
   font-size: large;
   margin-left: 5px;
 }
 
 .review-text{
-  margin: 0;
+  margin-bottom: 10px;
+}
+
+/*  exams.html  */
+.listexams li{
+	margin-top: 10px;
+}
+
+fieldset ul li{
+	margin: 10px 0;
 }
