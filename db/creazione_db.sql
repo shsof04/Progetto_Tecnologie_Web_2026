@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS insegnamento ( -- da cambiare in base alle chiavi giu
     id INT AUTO_INCREMENT PRIMARY KEY,
     professore_id INT NOT NULL,
     corso_id INT NOT NULL,
-    ruolo ENUM('LEZIONI','LAB') NOT NULL DEFAULT 'LEZIONI',
+    ruolo ENUM('LEZIONI','LABORATORIO') NOT NULL DEFAULT 'LEZIONI',
     anno_accademico VARCHAR(9) NOT NULL, -- es: 2025-2026
     CONSTRAINT fk_ins_prof FOREIGN KEY (professore_id) REFERENCES professore(id)
       ON DELETE CASCADE ON UPDATE CASCADE,

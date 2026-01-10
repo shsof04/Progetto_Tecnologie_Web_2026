@@ -25,15 +25,41 @@ INSERT INTO corso (corso_id) VALUES
 ('Tecnologie Web');
 
 -- Insegnamenti (lezioni)
-INSERT INTO insegnamento (professore_id, corso_id, ruolo, anno_accademico) VALUES -- come si specifica quale è l'id?
-(1, 1, 'LEZIONI', '2025-2026'),                                                     -- nelle tabelle di creazione!
-(2, 2, 'LEZIONI', '2025-2026'),
-(3, 3, 'LEZIONI', '2025-2026'); -- mettere tutti i corsi e anche quelli degli anni precedenti?
+INSERT INTO insegnamento (professore_id, corso_id, ruolo, anno_accademico) VALUES
+('gianluca.torre@unibo.it', 'Architetture degli Elaboratori', 'LEZIONI', '2025-2026'),
+('gianluca.torre@unibo.it', 'Architetture degli Elaboratori', 'LABORATORIO', '2025-2026'),
+('ida.difilippo@unibo.it', 'Basi di Dati', 'LEZIONI', '2025-2026'),
+('ida.difilippo@unibo.it', 'Basi di Dati', 'LABORATORIO', '2025-2026'),
+('mariana.damico@unibo.it', 'Programmazione', 'LEZIONI', '2025-2026'),
+('corrado.sassu@unibo.com', 'Programmazione', 'LABORATORIO', '2025-2026'),
+('nadia.mayer@unibo.com', 'Crittografia', 'LEZIONI', '2025-2026'),
+('nadia.mayer@unibo.com', 'Tecnologie Web', 'LEZIONI', '2025-2026'),
+('blasco.pulieru@unibo.com', 'Tecnologie Web', 'LABORATORIO', '2025-2026'),
+
+('blasco.pulieru@unibo.com', 'Architetture degli Elaboratori', 'LEZIONI', '2024-2025'),
+('gianluca.torre@unibo.it', 'Architetture degli Elaboratori', 'LABORATORIO', '2024-2025'),
+('ida.difilippo@unibo.it', 'Basi di Dati', 'LEZIONI', '2024-2025'),
+('ida.difilippo@unibo.it', 'Basi di Dati', 'LABORATORIO', '2024-2025'),
+('nadia.mayer@unibo.com', 'Programmazione', 'LEZIONI', '2024-2025'),
+('corrado.sassu@unibo.com', 'Programmazione', 'LABORATORIO', '2024-2025'),
+('mariana.damico@unibo.it', 'Crittografia', 'LEZIONI', '2024-2025'),
+('nadia.mayer@unibo.com', 'Tecnologie Web', 'LEZIONI', '2024-2025'),
+('corrado.sassu@unibo.com', 'Tecnologie Web', 'LABORATORIO', '2024-2025'),
+
+('gianluca.torre@unibo.it', 'Architetture degli Elaboratori', 'LEZIONI', '2023-2024'),
+('gianluca.torre@unibo.it', 'Architetture degli Elaboratori', 'LABORATORIO', '2023-2024'),
+('ida.difilippo@unibo.it', 'Basi di Dati', 'LEZIONI', '2023-2024'),
+('ida.difilippo@unibo.it', 'Basi di Dati', 'LABORATORIO', '2023-2024'),
+('mariana.damico@unibo.it', 'Programmazione', 'LEZIONI', '2023-2024'),
+('mariana.damico@unibo.it', 'Programmazione', 'LABORATORIO', '2023-2024'),
+('nadia.mayer@unibo.com', 'Crittografia', 'LEZIONI', '2023-2024'),
+('nadia.mayer@unibo.com', 'Tecnologie Web', 'LEZIONI', '2023-2024'),
+('blasco.pulieru@unibo.com', 'Tecnologie Web', 'LABORATORIO', '2023-2024');
 
 -- Recensioni (utente_id = 2 è Blasco)
 INSERT INTO recensione
 (utente_id, professore_id, corso_id, anno_accademico, voto_recensione, voto_esame, data_appello, testo)
 VALUES
-(2, 1, 1, '2025-2026', 9, 28.5, '2026-01-09', 'Spiega bene, esame coerente con le lezioni.'),
-(2, 2, 2, '2025-2026', 8, 26.7, '2026-01-15', 'Corso chiaro, ma serve allenarsi molto sugli esercizi.'),
-(2, 3, 3, '2025-2026', 8, 24.0, '2026-01-22', 'Ritmo veloce, ma spiegazioni utili e disponibili a ricevimento.');
+('nico.tedeschi@studio.unibo.it', 'gianluca.torre@unibo.it', 'Architetture degli Elaboratori', '2025-2026', 9, 28.5, '2026-01-09', 'Spiega bene, esame coerente con le lezioni.'),
+('moira.quartieri@studio.unibo.it', 'ida.difilippo@unibo.it', 'Basi di Dati', '2025-2026', 8, 26.7, '2026-01-15', 'Corso chiaro, ma serve allenarsi molto sugli esercizi.'),
+('matteo.nencioni@studio.unibo.it', 'mariana.damico@unibo.it', 'Programmazione', '2025-2026', 8, 24.0, '2026-01-22', 'Ritmo veloce, ma spiegazioni utili e disponibili a ricevimento.');
