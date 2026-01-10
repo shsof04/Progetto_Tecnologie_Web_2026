@@ -1,35 +1,35 @@
 CREATE DATABASE IF NOT EXISTS uniborankings
-  CHARACTER SET utf8mb4
+  CHARACTER SET utf8mb4 -- cos'è
   COLLATE utf8mb4_unicode_ci;
 
 USE uniborankings;
 
 -- Utenti (studenti + admin)
 CREATE TABLE IF NOT EXISTS utente (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY, -- no
   nome VARCHAR(100) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
   ruolo ENUM('STUDENTE','ADMIN') NOT NULL DEFAULT 'STUDENTE',
-  attivo TINYINT NOT NULL DEFAULT 1
+  attivo TINYINT NOT NULL DEFAULT 1 -- ?
 ) ENGINE=InnoDB;
 
 -- Professori
 CREATE TABLE IF NOT EXISTS professore (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY, -- no
   nome VARCHAR(120) NOT NULL,
   email VARCHAR(255) NULL
 ) ENGINE=InnoDB;
 
 -- Corsi
 CREATE TABLE IF NOT EXISTS corso (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY, -- no
   nome VARCHAR(140) NOT NULL,
-  cfu TINYINT NULL
+  cfu TINYINT NULL -- no?
 ) ENGINE=InnoDB;
 
 -- Insegnamenti (chi tiene cosa e con che ruolo: lezioni/lab)
-CREATE TABLE IF NOT EXISTS insegnamento (
+CREATE TABLE IF NOT EXISTS insegnamento ( -- da cambiare in base alle chiavi giuste
   id INT AUTO_INCREMENT PRIMARY KEY,
   professore_id INT NOT NULL,
   corso_id INT NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS insegnamento (
 ) ENGINE=InnoDB;
 
 -- Recensioni
-CREATE TABLE IF NOT EXISTS recensione (
+CREATE TABLE IF NOT EXISTS recensione ( -- idem
   id INT AUTO_INCREMENT PRIMARY KEY,
   utente_id INT NOT NULL,       -- chi scrive
   professore_id INT NOT NULL,   -- prof recensito
