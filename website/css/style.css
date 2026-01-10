@@ -21,29 +21,29 @@ header{
     font-size: 20px;   
     display: flex;
     align-items: center;   /* allineamento verticale */
-    gap: 15px;
 }
 
 header img{
-    width: 90px;
-    height: 90px;
-}
-
-header > h1{ /*SISTEMARE CON L'IMMAGINE*/
-	  padding: 10px;
+    width: 75px;
+    height: 75px;
+    padding: 5px;
 }
 
 nav{
     margin: 10px 5% 20px;
 }
  
+nav ul {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
 
-nav ul li{
-    display: inline-block;  
-    width: 45%;         
-  	box-sizing: border-box;   
-    text-align: center;  
-    margin: 10px 0 0;  
+nav ul li {
+    flex: 1 1 auto;
+    text-align: center;
+    margin: 10px 5px 0;
+    white-space: nowrap; /*  impedisce il ritorno a capo */
 }
 
 nav ul li, aside{
@@ -53,7 +53,6 @@ nav ul li, aside{
 
 nav ul li:first-child{
     margin-right: 10%;
-	
 }
 
 nav ul li a {
