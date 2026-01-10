@@ -27,8 +27,8 @@ CREATE TABLE IF NOT EXISTS corso (
 
 -- Insegnamenti (se il professore viene cancellato, vengono cancellati tutti i suoi esami)
 CREATE TABLE IF NOT EXISTS insegnamento (
-    professore_id INT NOT NULL,
-    corso_id INT NOT NULL,
+    professore_id VARCHAR(255) NOT NULL,
+    corso_id VARCHAR(140) NOT NULL,
     ruolo ENUM('LEZIONI','LABORATORIO') NOT NULL DEFAULT 'LEZIONI',
     anno_accademico VARCHAR(9) NOT NULL,
     PRIMARY KEY (professore_id, corso_id, ruolo, anno_accademico),
