@@ -60,6 +60,6 @@ INSERT INTO insegnamento (professore_id, corso_id, ruolo, anno_accademico) VALUE
 INSERT INTO recensione
 (utente_id, professore_id, corso_id, anno_accademico, voto_recensione, voto_esame, data_appello, testo)
 VALUES
-('nico.tedeschi@studio.unibo.it', 'gianluca.torre@unibo.it', 'Architetture degli Elaboratori', '2025-2026', 9, 28.5, '2026-01-09', 'Spiega bene, esame coerente con le lezioni.'),
-('moira.quartieri@studio.unibo.it', 'ida.difilippo@unibo.it', 'Basi di Dati', '2025-2026', 8, 26.7, '2026-01-15', 'Corso chiaro, ma serve allenarsi molto sugli esercizi.'),
-('matteo.nencioni@studio.unibo.it', 'mariana.damico@unibo.it', 'Programmazione', '2025-2026', 8, 24.0, '2026-01-22', 'Ritmo veloce, ma spiegazioni utili e disponibili a ricevimento.');
+('nico.tedeschi@studio.unibo.it', 'gianluca.torre@unibo.it', 'Architetture degli Elaboratori', '2025-2026', 9, 28, '2026-01-09', 'Spiega bene, esame coerente con le lezioni.'),
+('moira.quartieri@studio.unibo.it', 'ida.difilippo@unibo.it', 'Basi di Dati', '2025-2026', 8, 26, '2026-01-15', 'Corso chiaro, ma serve allenarsi molto sugli esercizi.'),
+('matteo.nencioni@studio.unibo.it', 'mariana.damico@unibo.it', 'Programmazione', '2025-2026', 8, 24, '2026-01-22', 'Ritmo veloce, ma spiegazioni utili e disponibili a ricevimento.');
