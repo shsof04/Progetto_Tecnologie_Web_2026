@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UniboRankings - Home</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+    <header><img src="" alt="" /><h1>UniboRankings</h1></header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li><li><a href="review.html">Scrivi una recensione</a></li>
+        </ul>
+    </nav>
+
+    <div class="layout">
+        <main>
+            <h2>Classifica Professori</h2>
+        
+            <section>
+                <form class="search-bar" role="search">
+                    <input id="searchcourse" type="search" placeholder="Cerca Professore" />
+                    <button type="submit" class="search-btn">Cerca</button>
+                </form>
+
+                <ul id="results"></ul>
+            </section>
+            <section>
+                <table>
+                    <tr>
+                        <th id="posizione">Posizione</th>
+                        <th id="docente">Docente</th>
+                        <th id="corso">Corso</th>
+                        <th id="mediarecensioni">Media voto recensioni</th>
+                        <th id="mediaesami">Media voto esami</th>
+                    </tr>
+                    <tr>
+                        <th id="primo">1</th>
+                        <td headers="primo docente"><a href="professors.html">Gianluca Torre</a></td>
+                        <td headers="primo corso">Architetture degli Elaboratori</td>
+                        <td headers="primo mediarecensioni">9</td>
+                        <td headers="primo mediaesami">28</td>
+                    </tr>
+                    <tr>
+                        <th id="secondo">2</th>
+                        <td headers="secondo docente"><a href="professors.html">Ida Di Filippo</a></td>
+                        <td headers="secondo corso">Basi di Dati</td>
+                        <td headers="secondo mediarecensioni">8.5</td>
+                        <td headers="secondo mediaesami">27</td>
+                    </tr>
+                    <tr>
+                        <th id="terzo">3</th>
+                        <td headers="terzo docente"><a href="professors.html">Mariana D'Amico</a></td>
+                        <td headers="terzo corso">Programmazione</td>
+                        <td headers="terzo mediarecensioni">8</td>
+                        <td headers="terzo mediaesami">26</td>
+                    </tr>
+                </table>
+            </section>
+        </main>
+
+        <aside>
+            <section>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Corsi</a></li>
+                    <li><a href="profile.html">Profilo</a></li>
+                    <li><a href="review.html">Scrivi una recensione</a></li>
+                </ul>
+            </section>
+            <section>
+                <a href="login.html">Logout</a>
+            </section>
+        </aside>
+
+    </div>
+
+    <footer>
+        <h3>Contatti:</h3>
+        <ul>
+            <li>Email segreteria: segcesena@unibo.it</li>
+            <li>Telefono: +39 0547338300</li>
+            <li><a href="https://www.unibo.it/it">Sito Unibo</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

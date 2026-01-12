@@ -1,0 +1,10 @@
+# Serve a far sì che VS Code formattino i file tutti nello stesso modo (avendo due sistemi operativi diversi, MacOS e Windows)
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+
