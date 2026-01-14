@@ -1,8 +1,8 @@
 <?php
 /*
 1. DATABASE.php __ creare metodo per fare la query
-2. INDEX.php __ passare metodo con templateparams
-3. BASE.php/dove voglio aggiungere nella pagin __ visualizzarlo nella pagina con un ciclo
+2. pagina.php __ passare metodo con templateparams
+3. BASE.php __ visualizzarlo nella pagina con un ciclo
 
 
 creo classe databasehelper con i metodi per recuperare i dati

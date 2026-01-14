@@ -19,7 +19,13 @@ function registerLoggedUser($user){
     $_SESSION["immagineprofilo"] = $user["immagineprofilo"];
 }
  
-
+// redirect a login.php se l'utente non è autenticato
+function requireLogin(){
+    if(!isUserLoggedIn()){
+        header("Location: login.php");
+        exit;
+    }
+    
 //per caricare immagini, specifico percorso per caricare immagine (percorso salvato nella costante UPLOAD.DIR) + immagine che viene caricata
 function uploadImage($path, $image){
 
