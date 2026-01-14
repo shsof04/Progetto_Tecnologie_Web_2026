@@ -1,8 +1,11 @@
 <form class="form section-login" action="login.php" method="POST">
+    
             <h2>Login</h2>
+
             <?php if(isset($templateParams["errorelogin"])): ?>
             <p><?php echo $templateParams["errorelogin"]; ?></p>
             <?php endif; ?>
+
             <ul>
                 <li>
                     <label for="email">Email:</label><input type="text" id="email" name="email" />
@@ -15,3 +18,5 @@
                 </li>
             </ul>
         </form>
+
+  

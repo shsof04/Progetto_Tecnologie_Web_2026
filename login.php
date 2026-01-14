@@ -13,7 +13,7 @@ if (!empty($_SESSION["utente_id"])) {
     exit;
 }
 
-/*
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $email = trim($_POST["email"] ?? "");
   $password = $_POST["password"] ?? "";
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $templateParams["errorelogin"] = "Credenziali non valide.";
   }
 }
-*/
+/*
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"] ?? "";
     $password = $_POST["password"] ?? "";
@@ -49,9 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
         $templateParams["errore_login"] = "Email o password sbagliate.";
     }
-}
+}*/
 
-require("template/base.php");
+require("template/base-login.php");
 ?>
 
 
