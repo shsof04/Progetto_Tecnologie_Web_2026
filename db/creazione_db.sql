@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS recensione (
 
     anno_accademico VARCHAR(9) NOT NULL,
     voto_recensione TINYINT NOT NULL,
-    voto_esame INT NOT NULL,
+    voto_esame INT NULL, -- se si viene respinti
     data_appello DATE NOT NULL,
     testo TEXT NOT NULL,
 

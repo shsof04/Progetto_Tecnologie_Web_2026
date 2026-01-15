@@ -27,14 +27,14 @@
    <aside>
             <section>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="courses.html">Corsi</a></li>
-                    <li><a href="profile.html">Profilo</a></li>
-                    <li><a href="review.html">Scrivi una recensione</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="courses.php">Corsi</a></li>
+                    <li><a href="profile.php">Profilo</a></li>
+                    <li><a href="review.php">Scrivi una recensione</a></li>
                 </ul>
             </section>
             <section>
-                <a href="login.html">Logout</a>
+                <a href="login.php">Logout</a>
             </section>
         </aside>
 

@@ -2,19 +2,19 @@ USE uniborankings;
 
 -- Utenti id = email
 INSERT INTO utente (nome, utente_id, password, ruolo, immagineprofilo) VALUES 
-('Admin', 'admin@uniborankings.it', 'admin', 'ADMIN', 'logo.PNG'),
-('Moira Quartieri', 'moira.quartieri@studio.unibo.it', 'pass1', 'STUDENTE', 'MoiraQuartieri.jpeg'),
-('Nico Tedeschi', 'nico.tedeschi@studio.unibo.it', 'pass2', 'STUDENTE', 'NicoTedeschi.png'),
-('Matteo Nencioni', 'matteo.nencioni@studio.unibo.it', 'pass3', 'STUDENTE', 'MatteoNencioni.jpg');
+('Admin', 'admin@uniborankings.it', 'admin', 'ADMIN', 'resources/logo.PNG'),
+('Moira Quartieri', 'moira.quartieri@studio.unibo.it', 'pass1', 'STUDENTE', 'resources/MoiraQuartieri.jpeg'),
+('Nico Tedeschi', 'nico.tedeschi@studio.unibo.it', 'pass2', 'STUDENTE', 'resources/NicoTedeschi.png'),
+('Matteo Nencioni', 'matteo.nencioni@studio.unibo.it', 'pass3', 'STUDENTE', 'resources/MatteoNencioni.jpg');
 
 -- Professori id = email
 INSERT INTO professore (nome, professore_id, immagineprofilo) VALUES
-('Gianluca Torre', 'gianluca.torre@unibo.it', 'GianlucaTorre.jpg'),
-('Ida Di Filippo', 'ida.difilippo@unibo.it', 'IdaDiFilippo.png'),
-('Mariana DAmico', 'mariana.damico@unibo.it', 'MarianaDAmico.jpg'),
-('Nadia Mayer', 'nadia.mayer@unibo.com', 'NadiaMayer.jpeg'),
-('Corrado Sassu', 'corrado.sassu@unibo.com', 'CorradoSassu.png'),
-('Blasco Pulieri', 'blasco.pulieru@unibo.com', 'BlascoPulieri.jpg');
+('Gianluca Torre', 'gianluca.torre@unibo.it', 'resources/GianlucaTorre.jpg'),
+('Ida Di Filippo', 'ida.difilippo@unibo.it', 'resources/IdaDiFilippo.png'),
+('Mariana DAmico', 'mariana.damico@unibo.it', 'resources/MarianaDAmico.jpg'),
+('Nadia Mayer', 'nadia.mayer@unibo.com', 'resources/NadiaMayer.jpeg'),
+('Corrado Sassu', 'corrado.sassu@unibo.com', 'resources/CorradoSassu.png'),
+('Blasco Pulieri', 'blasco.pulieru@unibo.com', 'resources/BlascoPulieri.jpg');
 
 -- Corsi
 INSERT INTO corso (corso_id, nome) VALUES

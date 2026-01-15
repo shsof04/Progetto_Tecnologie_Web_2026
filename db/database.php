@@ -43,8 +43,7 @@ class DatabaseHelper{
     }  
     
     public function getReviewsByUser($user_id){
-        $stmt = $this->db->prepare("SELECT utente_id, professore_id, corso_id, anno_accademico, 
-        voto_recensione, voto_esame, data_appello, testo, data_creazione, data_modifica 
+        $stmt = $this->db->prepare("SELECT *, 
         COALESCE(data_modifica, data_creazione) AS data_pubblicazione FROM recensione 
         WHERE utente_id=? ORDER BY data_pubblicazione DESC");
 
@@ -63,7 +62,7 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_assoc();
     }
 
     public function getCourseById($corso_id){ //forse non mi serve corso_id tra i select
@@ -73,7 +72,7 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_assoc();
     }
 
     public function getReviewsByProfessor($professore_id, $corso_id){
@@ -84,8 +83,54 @@ class DatabaseHelper{
         WHERE r.professore_id = ? AND r.corso_id = ? ORDER BY data_pubblicazione DESC";
         
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $corso_id);
+        $stmt->bind_param("ss", $professore_id, $corso_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getAverageByProfessorAndCourse($professore_id, $corso_id) {
+        $query = "SELECT ROUND(AVG(voto_recensione), 1) AS media_recensioni,
+        ROUND(AVG(voto_esame), 1) AS media_voti FROM recensione WHERE professore_id = ?
+        AND corso_id = ?";        
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ss", $professore_id, $corso_id);
+        $stmt->execute();
+
+        return $stmt->get_result()->fetch_assoc();
+    }
+
+
+    public function changePassword($utente_id, $oldPassword, $newPassword) {
+        $stmt = $this->db->prepare( "SELECT password FROM utente WHERE utente_id = ?");
+                   
+        $stmt->bind_param("s", $utente_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        //controllo aggiuntivo
+        if ($result->num_rows !== 1) {
+            return false;
+        }
+
+        $row = $result->fetch_assoc();
+
+        //confronto con la vecchia password
+        if ($row["password"] !== $oldPassword) {
+            return false;
+        }
+
+        // update nuova password
+        $stmt = $this->db->prepare(
+            "UPDATE utente SET password = ? WHERE utente_id = ?"
+        );
+        $stmt->bind_param("ss", $newPassword, $utente_id);
+
+        return $stmt->execute();
+}
+
 
 }
 
