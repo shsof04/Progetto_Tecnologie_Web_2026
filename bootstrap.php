@@ -6,8 +6,7 @@
 session_start();
 //dobbiamo aggiungere nella cartella db un file database.php che conterrà tutti i metodi per interagire con il database
 require_once("db/database.php"); 
-
-require("template/base.php");
+ 
 require_once("utils/functions.php");
 
 //per assegnare i parametri (servername, username, password, nomedatabase, port (il valore che vedi su xampp))
