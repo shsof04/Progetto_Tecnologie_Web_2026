@@ -8,36 +8,53 @@
 </head>
 
 <body>
-  <header><img src="" alt="" /><h1>UniboRankings</h1></header>
+  <?php
+    $logged = function_exists('isUserLoggedIn') ? isUserLoggedIn() : !empty($_SESSION['utente_id']);
+    $showNav = $templateParams["showNav"] ?? $logged;
+    $showAside = $templateParams["showAside"] ?? $logged;
+  ?>
 
+  <header>
+    <img src="./resources/logo.PNG" alt="Logo UniboRankings" />
+    <h1>UniboRankings</h1>
+  </header>
+
+<?php if($showNav): ?>
   <nav>
     <ul>
-      <li><a href="index.php">Home</a></li>
-      <li><a href="review.php">Scrivi una recensione</a></li>
+      <li><a <?php isActive('index.php'); ?> href="index.php">Home</a></li>
+      <li><a <?php isActive('review.php'); ?> href="review.php">Scrivi una recensione</a></li>
     </ul>
   </nav>
+  <?php endif; ?>
+  
+  <div class="layout">
   <main>
-            
-        <?php
-            if(isset($templateParams["nome"])){
-                require($templateParams["nome"]);
-            }
-        ?>
-  </main>      
-   <aside>
-            <section>
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="courses.php">Corsi</a></li>
-                    <li><a href="profile.php">Profilo</a></li>
-                    <li><a href="review.php">Scrivi una recensione</a></li>
-                </ul>
-            </section>
-            <section>
-                <a href="login.php">Logout</a>
-            </section>
-        </aside>
+     <?php
+    if(isset($templateParams["nome"])){
+        require($templateParams["nome"]);
+    }
+    ?>
+    </main>
 
+    <?php if($showAside): ?>
+      <aside>
+        <section>
+          <ul>
+            <li><a <?php isActive('index.php'); ?> href="index.php">Home</a></li>
+            <li><a <?php isActive('courses.php'); ?> href="courses.php">Corsi</a></li>
+            <li><a <?php isActive('profile.php'); ?> href="profile.php">Profilo</a></li>
+            <li><a <?php isActive('review.php'); ?> href="review.php">Scrivi una recensione</a></li>
+          </ul>
+        </section>
+        <section>
+          <a href="logout.php">Logout</a>
+        </section>
+      </aside>
+    <?php endif; ?>
+  </div>
+
+  
   <footer>
     <h3>Contatti:</h3>
     <ul>

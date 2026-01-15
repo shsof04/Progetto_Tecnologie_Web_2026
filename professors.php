@@ -17,8 +17,7 @@ $templateParams["nome"] = 'Profilo-professore.php';
 $templateParams["professore"] = $dbh->getProfessorById($professore_id);
 $templateParams["corso"] = $dbh->getCourseById($corso_id);
 $templateParams["recensioniprofessore"] = $dbh->getReviewsByProfessor($professore_id, $corso_id);
-
-//fare le funzioni per premdere le medie (so fa con AVG())
+$templateParams["medie"] = getAverageByProfessorAndCourse($professore_id, $corso_id);
 
 require("template/base.php");
 ?>

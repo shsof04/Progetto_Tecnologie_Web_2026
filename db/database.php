@@ -1,8 +1,8 @@
 <?php
 /*
 1. DATABASE.php __ creare metodo per fare la query
-2. pagina.php __ passare metodo con templateparams
-3. BASE.php __ visualizzarlo nella pagina con un ciclo
+2. INDEX.php __ passare metodo con templateparams
+3. BASE.php/dove voglio aggiungere nella pagin __ visualizzarlo nella pagina con un ciclo
 
 
 creo classe databasehelper con i metodi per recuperare i dati
@@ -30,18 +30,38 @@ class DatabaseHelper{
     }
   
     
-    // UTENTE LOGIN 
-        public function checkLogin($email, $password){
+    // UTENTE LOGIN (utente_id = email)
+    public function checkLogin($utente_id, $password){
         $query = "SELECT nome, utente_id, ruolo, immagineprofilo
-        FROM utente WHERE attivo=1 AND utente_id = ? AND password = ?";
+                  FROM utente
+                  WHERE attivo=1 AND utente_id = ? AND password = ?
+                  LIMIT 1";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ss",$email, $password);
+        $stmt->bind_param("ss", $utente_id, $password);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }  
     
+        public function getProfessorRankings(){
+    $query = "SELECT p.nome AS docente,
+                     c.nome AS corso,
+                     AVG(r.voto_recensione) AS media_recensioni,
+                     AVG(r.voto_esame) AS media_esami
+              FROM recensione r
+              JOIN professore p ON r.professore_id = p.professore_id
+              JOIN corso c ON r.corso_id = c.corso_id
+              GROUP BY r.professore_id, r.corso_id
+              ORDER BY media_recensioni DESC, media_esami DESC";
+
+    $stmt = $this->db->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_all(MYSQLI_ASSOC);
+
+}
+
     public function getReviewsByUser($user_id){
         $stmt = $this->db->prepare("SELECT *, 
         COALESCE(data_modifica, data_creazione) AS data_pubblicazione FROM recensione 
@@ -132,6 +152,8 @@ class DatabaseHelper{
 }
 
 
+ 
 }
+
 
 ?>
