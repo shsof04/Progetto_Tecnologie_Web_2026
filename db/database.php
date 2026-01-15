@@ -44,6 +44,24 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }  
     
+        public function getProfessorRankings(){
+    $query = "SELECT p.nome AS docente,
+                     c.nome AS corso,
+                     AVG(r.voto_recensione) AS media_recensioni,
+                     AVG(r.voto_esame) AS media_esami
+              FROM recensione r
+              JOIN professore p ON r.professore_id = p.professore_id
+              JOIN corso c ON r.corso_id = c.corso_id
+              GROUP BY r.professore_id, r.corso_id
+              ORDER BY media_recensioni DESC, media_esami DESC";
+
+    $stmt = $this->db->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_all(MYSQLI_ASSOC);
+
+}
+
     public function getReviewsByUser($user_id){
         $stmt = $this->db->prepare("SELECT utente_id, professore_id, corso_id, anno_accademico, 
         voto_recensione, voto_esame, data_appello, testo, data_creazione, data_modifica 
@@ -88,12 +106,7 @@ class DatabaseHelper{
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $corso_id);
     }
-
-    $stmt = $this->db->prepare($query);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    return $result->fetch_all(MYSQLI_ASSOC);
-
+ 
 }
 
 
