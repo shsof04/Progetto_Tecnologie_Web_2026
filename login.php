@@ -2,8 +2,12 @@
 require_once("bootstrap.php");
  
 //BASE PARAMS
-$templateParams["titolo"] = "BUniboRankings - Login";
+$templateParams["titolo"] = "UniboRankings - Login";
 $templateParams["nome"] = "login-form.php";
+
+// sul login non vogliamo menu laterali
+$templateParams["showNav"] = false;
+$templateParams["showAside"] = false;
 
 $templateParams["errorelogin"] = "";
 
@@ -15,10 +19,10 @@ if (!empty($_SESSION["utente_id"])) {
 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  $email = trim($_POST["email"] ?? "");
+  $utente_id = trim($_POST["email"] ?? "");
   $password = $_POST["password"] ?? "";
 
-  $rows = $dbh->checkLogin($email, $password);
+  $rows = $dbh->checkLogin($utente_id, $password);
 
   if (count($rows) === 1) {
     // salva sessione
@@ -29,9 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     header("Location: index.php");
     exit;
-  } else {
+  } 
+      // login fallito: pulisco eventuali vecchie sessioni
+    unset($_SESSION["utente_id"], $_SESSION["nome"], $_SESSION["ruolo"], $_SESSION["immagineprofilo"]);
     $templateParams["errorelogin"] = "Credenziali non valide.";
-  }
+    
 }
 /*
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -51,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }*/
 
-require("template/base-login.php");
+require("template/base.php");
 ?>
 
 

@@ -18,7 +18,7 @@ function registerLoggedUser($user){
     $_SESSION["ruolo"] = $user["ruolo"];
     $_SESSION["immagineprofilo"] = $user["immagineprofilo"];
 }
- 
+
 // redirect a login.php se l'utente non è autenticato
 function requireLogin(){
     if(!isUserLoggedIn()){
@@ -26,7 +26,11 @@ function requireLogin(){
         exit;
     }
 }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 62d1c92 (Update project file)
 //per caricare immagini, specifico percorso per caricare immagine (percorso salvato nella costante UPLOAD.DIR) + immagine che viene caricata
 function uploadImage($path, $image){
 
@@ -78,10 +82,9 @@ function uploadImage($path, $image){
     }
 
     //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
-    //controllo se msg è 0 come stringa, se è vuoto (= non c'è stato un errore) --> Sposta il file dalla cartella temporanea di PHP (tmp_name) alla destinazione finale ($fullPath, tipo upload/foto_2.jpg).
+    //controllo se $msg è vuoto (= non ci sono stati errori) --> Sposta il file dalla cartella temporanea di PHP (tmp_name) alla destinazione finale ($fullPath, tipo upload/foto_2.jpg).
     //se move_uploaded_file fallisce messaggio di errore
-    //altrimenti “successo = 1” e in $msg mette il nome del file salvato (non un messaggio testuale), così chi chiama la funzione può salvarlo nel DB o stamparlo.
-return array($result, $msg);
+    //altrimenti “successo = 1” e in $msg mette il nome del file salvato, così chi chiama la funzione può salvarlo nel DB o stamparlo.
     if(strlen($msg)==0){
         if(!move_uploaded_file($image["tmp_name"], $fullPath)){
             $msg.= "Errore nel caricamento dell'immagine.";

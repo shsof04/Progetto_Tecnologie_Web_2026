@@ -19,12 +19,27 @@ header{
 	color: #fff;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 	font-size: 20px; 
+
+    /* aggiunte */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
 }
 
-
-header > h1{ /*SISTEMARE CON L'IMMAGINE*/
-	padding: 10px;
+/*aggiunto*/
+header img{
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex: 0 0 auto;
 }
+
+/*
+header > h1{ 
+	padding: 10px; 
+}
+*/
 
 nav{
     margin: 10px 5% 20px;
@@ -152,6 +167,10 @@ table tr td a:hover, .listexams a:hover{
   color: #ce0303;
 }
 
+.search-bar label{
+  display: none;
+}
+
 /* su schermi piccoli: se non ci sta, va sotto in modo carino */
 @media screen and (min-width: 768px){
   .search-bar input{
@@ -213,7 +232,7 @@ table tr td a:hover, .listexams a:hover{
   padding: 5px 0;
 }
 
-.form input[type="password"], .form input[type="text"]{
+.form input[type="password"], .form input[type="text"], .form input[type="email"]{
   width: 100%;
   padding: 8px 10px;
   border: 1px solid #000;

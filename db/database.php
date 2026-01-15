@@ -1,8 +1,8 @@
 <?php
 /*
 1. DATABASE.php __ creare metodo per fare la query
-2. pagina.php __ passare metodo con templateparams
-3. BASE.php __ visualizzarlo nella pagina con un ciclo
+2. INDEX.php __ passare metodo con templateparams
+3. BASE.php/dove voglio aggiungere nella pagin __ visualizzarlo nella pagina con un ciclo
 
 
 creo classe databasehelper con i metodi per recuperare i dati
@@ -30,12 +30,14 @@ class DatabaseHelper{
     }
   
     
-    // UTENTE LOGIN 
-        public function checkLogin($email, $password){
+    // UTENTE LOGIN (utente_id = email)
+    public function checkLogin($utente_id, $password){
         $query = "SELECT nome, utente_id, ruolo, immagineprofilo
-        FROM utente WHERE attivo=1 AND utente_id = ? AND password = ?";
+                  FROM utente
+                  WHERE attivo=1 AND utente_id = ? AND password = ?
+                  LIMIT 1";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ss",$email, $password);
+        $stmt->bind_param("ss", $utente_id, $password);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -87,6 +89,12 @@ class DatabaseHelper{
         $stmt->bind_param("s", $corso_id);
     }
 
+    $stmt = $this->db->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_all(MYSQLI_ASSOC);
+
 }
+
 
 ?>

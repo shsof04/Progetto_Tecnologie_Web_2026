@@ -8,12 +8,22 @@
 </head>
 
 <body>
-  <header><img src="" alt="" /><h1>UniboRankings</h1></header>
+  <?php
+    $logged = function_exists('isUserLoggedIn') ? isUserLoggedIn() : !empty($_SESSION['utente_id']);
+    $showNav = $templateParams["showNav"] ?? $logged;
+    $showAside = $templateParams["showAside"] ?? $logged;
+  ?>
 
+  <header>
+    <img src="./resources/logo.PNG" alt="Logo UniboRankings" />
+    <h1>UniboRankings</h1>
+  </header>
+
+<?php if($showNav): ?>
   <nav>
     <ul>
-      <li><a href="index.php">Home</a></li>
-      <li><a href="review.php">Scrivi una recensione</a></li>
+      <li><a <?php isActive('index.php'); ?> href="index.php">Home</a></li>
+      <li><a <?php isActive('review.php'); ?> href="review.php">Scrivi una recensione</a></li>
     </ul>
   </nav>
   <main>
