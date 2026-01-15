@@ -3,7 +3,7 @@
             <section class="profile-head">
                 <ul>
                     <li><img class="profile-avatar" src="<?php echo $templateParams["professore"]["immagineprofilo"] ?>" alt="Foto profilo del docente" /></li>
-                    <li><strong>Media Recensioni: </strong> 9<br><strong>Media Voti: </strong>28<br><strong>E-mail:</strong> <?php echo $templateParams["professore"]["professore_id"] ?></li>
+                    <li><strong>Media Recensioni: </strong> <?php echo $templateParams["medie"]["media_recensioni"] ?><br><strong>Media Voti: </strong><?php echo $templateParams["medie"]["media_voti"] ?><br><strong>E-mail:</strong> <?php echo $templateParams["professore"]["professore_id"] ?></li>
                 </ul>
             </section>
 

@@ -74,7 +74,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getProfessorById($professore_id){ //guarda come si gestisce l'immagine
+    public function getProfessorById($professore_id){
         $stmt = $this->db->prepare("SELECT nome, professore_id, immagineprofilo 
         FROM professore WHERE professore_id=?");
        
@@ -110,7 +110,8 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getAverageByProfessorAndCourse($professore_id, $corso_id) {
+    public function getAverageByProfessorAndCourse($professore_id, $corso_id){
+        // arrotondamento ad 1 decimale
         $query = "SELECT ROUND(AVG(voto_recensione), 1) AS media_recensioni,
         ROUND(AVG(voto_esame), 1) AS media_voti FROM recensione WHERE professore_id = ?
         AND corso_id = ?";        
@@ -149,7 +150,7 @@ class DatabaseHelper{
         $stmt->bind_param("ss", $newPassword, $utente_id);
 
         return $stmt->execute();
-}
+    }
 
 
  
