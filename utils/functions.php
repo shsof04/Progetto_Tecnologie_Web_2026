@@ -26,11 +26,7 @@ function requireLogin(){
         exit;
     }
 }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 62d1c92 (Update project file)
 //per caricare immagini, specifico percorso per caricare immagine (percorso salvato nella costante UPLOAD.DIR) + immagine che viene caricata
 function uploadImage($path, $image){
 
