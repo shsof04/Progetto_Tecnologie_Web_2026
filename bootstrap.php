@@ -3,7 +3,8 @@
 <?php
 //dobbiamo aggiungere nella cartella db un file database.php che conterrà tutti i metodi per interagire con il database
 require_once("db/database.php"); 
+define("UPLOAD_DIR", "./resources/");
+$dbh = new DatabaseHelper("localhost", "root", "", "uniborankings", 3306);
 
 require("template/base.php");
-
 ?>
