@@ -14,7 +14,7 @@ INSERT INTO professore (nome, professore_id, immagineprofilo) VALUES
 ('Mariana DAmico', 'mariana.damico@unibo.it', 'resources/MarianaDAmico.jpg'),
 ('Nadia Mayer', 'nadia.mayer@unibo.com', 'resources/NadiaMayer.jpeg'),
 ('Corrado Sassu', 'corrado.sassu@unibo.com', 'resources/CorradoSassu.png'),
-('Blasco Pulieri', 'blasco.pulieru@unibo.com', 'resources/BlascoPulieri.jpg');
+('Blasco Pulieri', 'blasco.pulieri@unibo.com', 'resources/BlascoPulieri.jpg');
 
 -- Corsi
 INSERT INTO corso (corso_id, nome) VALUES
@@ -34,9 +34,9 @@ INSERT INTO insegnamento (professore_id, corso_id, ruolo, anno_accademico) VALUE
 ('corrado.sassu@unibo.com', 'Progr', 'LABORATORIO', '2025-2026'),
 ('nadia.mayer@unibo.com', 'Critt', 'LEZIONI', '2025-2026'),
 ('nadia.mayer@unibo.com', 'TechWeb', 'LEZIONI', '2025-2026'),
-('blasco.pulieru@unibo.com', 'TechWeb', 'LABORATORIO', '2025-2026'),
+('blasco.pulieri@unibo.com', 'TechWeb', 'LABORATORIO', '2025-2026'),
 
-('blasco.pulieru@unibo.com', 'ArchEla', 'LEZIONI', '2024-2025'),
+('blasco.pulieri@unibo.com', 'ArchEla', 'LEZIONI', '2024-2025'),
 ('gianluca.torre@unibo.it', 'ArchEla', 'LABORATORIO', '2024-2025'),
 ('ida.difilippo@unibo.it', 'BasiDati', 'LEZIONI', '2024-2025'),
 ('ida.difilippo@unibo.it', 'BasiDati', 'LABORATORIO', '2024-2025'),
@@ -54,7 +54,7 @@ INSERT INTO insegnamento (professore_id, corso_id, ruolo, anno_accademico) VALUE
 ('mariana.damico@unibo.it', 'Progr', 'LABORATORIO', '2023-2024'),
 ('nadia.mayer@unibo.com', 'Critt', 'LEZIONI', '2023-2024'),
 ('nadia.mayer@unibo.com', 'TechWeb', 'LEZIONI', '2023-2024'),
-('blasco.pulieru@unibo.com', 'TechWeb', 'LABORATORIO', '2023-2024');
+('blasco.pulieri@unibo.com', 'TechWeb', 'LABORATORIO', '2023-2024');
 
 -- Appelli
 INSERT INTO appello (professore_id, corso_id, anno_accademico, data_appello) VALUES
@@ -62,7 +62,7 @@ INSERT INTO appello (professore_id, corso_id, anno_accademico, data_appello) VAL
 ('ida.difilippo@unibo.it',  'BasiDati', '2025-2026', '2026-01-15'),
 ('mariana.damico@unibo.it', 'Progr',    '2025-2026', '2026-01-22'),
 
-('blasco.pulieru@unibo.com','ArchEla',  '2024-2025', '2025-09-14'),
+('blasco.pulieri@unibo.com','ArchEla',  '2024-2025', '2025-09-14'),
 ('nadia.mayer@unibo.com',   'TechWeb',  '2024-2025', '2025-08-29'),
 ('corrado.sassu@unibo.com', 'TechWeb',  '2024-2025', '2024-12-23'),
 

@@ -1,4 +1,4 @@
-<h2>Professori più consigliati:</h2>
+<h2>Professori più Consigliati</h2>
 
 <section>
   <form class="search-bar" role="search">
@@ -44,8 +44,19 @@
     ?>
       <tr>
         <th id="<?php echo htmlspecialchars($rowId); ?>"><?php echo $pos; ?></th>
-        <td headers="<?php echo htmlspecialchars($rowId); ?> docente"><?php echo htmlspecialchars($row["docente"]); ?></td>
-        <td headers="<?php echo htmlspecialchars($rowId); ?> corso"><?php echo htmlspecialchars($row["corso"]); ?></td>
+
+
+        <td headers="<?php echo htmlspecialchars($rowId); ?> docente">
+          <a href="professors.php?professore_id=<?php echo urlencode($row['professore_id']); ?>&amp;corso_id=<?php echo urlencode($row['corso_id']); ?>">
+            <?php echo htmlspecialchars($row["docente"]); ?>
+          </a>
+        </td>
+
+        <td headers="<?php echo htmlspecialchars($rowId); ?> corso">
+          <?php echo htmlspecialchars($row["corso"]); ?>
+        </td>
+
+
         <td headers="<?php echo htmlspecialchars($rowId); ?> mediarecensioni"><?php echo number_format((float)$row["media_recensioni"], 1); ?></td>
         <td headers="<?php echo htmlspecialchars($rowId); ?> mediaesami"><?php echo number_format((float)$row["media_esami"], 0); ?></td>
       </tr>

@@ -8,6 +8,16 @@
         <li class="profile-name"><?php echo $templateParams["utente"]["nome"]; ?><br><span class="profile-email"><?php echo $templateParams["utente"]["utente_id"]; ?></span></li>
     </ul>
 </section>
+  <!--          <section class="profile-head">
+                <ul>
+                    <li>
+                    <img class="profile-avatar"
+                        src="<?php echo htmlspecialchars($templateParams["baseUrl"] . "/resources/" . $templateParams["utente"]["immagineprofilo"]); ?>"
+                        alt="Foto profilo" />
+                    </li>
+                    <li class="profile-name"><?php echo $templateParams["utente"]["nome"] ?><br><span class="profile-email"><?php echo $templateParams["utente"]["utente_id"] ?></span></li>
+                </ul>
+            </section>-->
 
 <h3>Recensioni: </h3> 
 

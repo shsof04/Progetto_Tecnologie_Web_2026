@@ -12,6 +12,9 @@ require_once("utils/functions.php");
 //per assegnare i parametri (servername, username, password, nomedatabase, port (il valore che vedi su xampp))
 $dbh = new DatabaseHelper("localhost", "root", "", "uniborankings", 3306);
 
+$baseUrl = rtrim(dirname($_SERVER['SCRIPT_NAME']), "/\\");
+if ($baseUrl === "/") $baseUrl = "";
+
 //definisco la costante per l'immagine
 define("UPLOAD_DIR", "./resources/");
 

@@ -6,6 +6,18 @@
         <li><strong>Media Recensioni: </strong> <?php echo $templateParams["medie"]["media_recensioni"]; ?><br><strong>Media Voti: </strong><?php echo $templateParams["medie"]["media_voti"]; ?><br><strong>E-mail:</strong> <?php echo $templateParams["professore"]["professore_id"]; ?></li>
     </ul>
 </section>
+  <!--          <h2> <?php echo htmlspecialchars($templateParams["professore"]["nome"]); ?> - <?php  echo htmlspecialchars($templateParams["corso"]["nome"]); ?></h2>
+
+            <section class="profile-head">
+                <ul>
+                    <li>
+                        <img class="profile-avatar"
+                            src="<?php echo htmlspecialchars($templateParams["baseUrl"] . "/resources/" . $templateParams["professore"]["immagineprofilo"]); ?>"
+                            alt="Foto profilo del docente" />
+                        </li>
+                    <li><strong>Media Recensioni: </strong> <?php echo $templateParams["medie"]["media_recensioni"] ?><br><strong>Media Voti: </strong><?php echo $templateParams["medie"]["media_voti"] ?><br><strong>E-mail:</strong> <?php echo htmlspecialchars($templateParams["professore"]["professore_id"]); ?></li>
+                </ul>
+            </section>-->
 
 <h2>Recensioni: </h2> 
 
