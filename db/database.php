@@ -152,6 +152,80 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
+    public function insertRecensione($utente_id, $professore_id, $corso_id, $anno_accademico, 
+        $voto_recensione, $voto_esame, $data_appello, $testo){
+        if ($voto_esame === null){
+            $stmt = $this->db->prepare("INSERT INTO recensione 
+                (utente_id, professore_id, corso_id, anno_accademico, voto_recensione, voto_esame, data_appello, testo)
+                VALUES (?, ?, ?, ?, ?, NULL, ?, ?)");
+           
+            $stmt->bind_param("sssiiss", $utente_id, $professore_id, $corso_id, $anno_accademico, $voto_recensione, $data_appello, $testo);
+        } else {
+            $stmt = $this->db->prepare("INSERT INTO recensione 
+                (utente_id, professore_id, corso_id, anno_accademico, voto_recensione, voto_esame, data_appello, testo)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+           
+            $stmt->bind_param("ssssiiss", $utente_id, $professore_id, $corso_id, $anno_accademico, $voto_recensione, $voto_esame, $data_appello, $testo);
+        }
+        return $stmt->execute();
+
+    }
+
+    public function getAllProfessors(){
+        $stmt = $this->db->prepare("SELECT * FROM professore");
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+     public function getProfessorsAndCoursesWithYears() {
+        $query = "SELECT i.professore_id, p.nome AS nome_professore, i.corso_id, c.nome AS nome_corso, i.anno_accademico
+                  FROM insegnamento i
+                  JOIN professore p ON i.professore_id = p.professore_id
+                  JOIN corso c ON i.corso_id = c.corso_id
+                  ORDER BY p.nome, c.nome, i.anno_accademico";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+ 
+    public function getAppelli() {
+        $query = "SELECT professore_id, corso_id, anno_accademico,
+                        data_appello
+                FROM appello
+                ORDER BY data_appello ASC";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function checkReviewExists($utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello) {
+    $query = "SELECT COUNT(*) AS cnt
+              FROM recensione
+              WHERE utente_id = ?
+                AND professore_id = ?
+                AND corso_id = ?
+                AND anno_accademico = ?
+                AND data_appello = ?";
+
+    $stmt = $this->db->prepare($query);
+        if (!$stmt) {
+            throw new Exception("Errore nella preparazione della query: " . $this->db->error);
+        }
+
+        $stmt->bind_param("sssss", $utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        return $row['cnt'] > 0; // true se esiste già, false altrimenti
+    }
+
 
  
 }

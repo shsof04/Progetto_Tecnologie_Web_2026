@@ -1,4 +1,4 @@
-<h2>Classifica Professori</h2>
+<h2>Professori più consigliati:</h2>
 
 <section>
   <form class="search-bar" role="search">
