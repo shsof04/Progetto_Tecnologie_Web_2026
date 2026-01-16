@@ -12,6 +12,8 @@ $templateParams["utente"] = [
  
 $templateParams["titolo"] = 'UniboRankings - Profilo';
 $templateParams["nome"] = 'profilo-utente.php';
+
+$templateParams["baseUrl"] = $baseUrl;
 $templateParams["recensioniutente"] = $dbh->getReviewsByUser($_SESSION['utente_id']);
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
