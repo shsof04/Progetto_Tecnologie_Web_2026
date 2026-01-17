@@ -27,6 +27,7 @@ function requireLogin(){
     }
 }
 
+//SERVE? 
 //per caricare immagini, specifico percorso per caricare immagine (percorso salvato nella costante UPLOAD.DIR) + immagine che viene caricata
 function uploadImage($path, $image){
 
@@ -91,6 +92,27 @@ function uploadImage($path, $image){
         }
     }
     return array($result, $msg);
+}
+
+//per modifica ed elimina recensione
+
+//da modificare nel caso serva
+function getEmptyArticle(){
+    return array("idarticolo" => "", "titoloarticolo" => "", "imgarticolo" => "", "testoarticolo" => "", "anteprimaarticolo" => "", "categorie" => array());
+}
+
+function getAction($action){
+    $result = "";
+    switch($action){
+        case 1:
+            $result = "Modifica";
+            break;
+        case 2:
+            $result = "Cancella";
+            break;
+    }
+
+    return $result;
 }
 
 ?>

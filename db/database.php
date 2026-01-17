@@ -158,9 +158,8 @@ class DatabaseHelper{
         }
 
         // update nuova password
-        $stmt = $this->db->prepare(
-            "UPDATE utente SET password = ? WHERE utente_id = ?"
-        );
+        $stmt = $this->db->prepare("UPDATE utente SET password = ? WHERE utente_id = ?");
+
         $stmt->bind_param("ss", $newPassword, $utente_id);
 
         return $stmt->execute();
