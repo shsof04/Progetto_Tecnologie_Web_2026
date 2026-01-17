@@ -83,83 +83,86 @@
     <input class="button" type="reset" value="Cancella" />
 </form>
 
+<!-- Passaggio dati PHP al JS -->
 <script>
-const dati = <?= json_encode($templateParams["professori_corsi"]) ?>; // professore + corso + anno
-const appelli = <?= json_encode($templateParams["appelli"]) ?>; // appelli dal DB
+    window.dati = <?= json_encode($templateParams["professori_corsi"]) ?>;
+    window.appelli = <?= json_encode($templateParams["appelli"]) ?>;
 
-const selectProf = document.getElementById("professore");
-const selectCorso = document.getElementById("corso");
-const selectAnno = document.getElementById("anno");
-const selectAppello = document.getElementById("appello");
+    const selectProf = document.getElementById("professore");
+    const selectCorso = document.getElementById("corso");
+    const selectAnno = document.getElementById("anno");
+    const selectAppello = document.getElementById("appello");
 
-// Professore → Corsi
-selectProf.addEventListener("change", function () {
-    const profId = this.value;
-    selectCorso.innerHTML = "<option value=''>-- Seleziona corso --</option>";
-    selectCorso.disabled = !profId;
+    // Professore → Corsi
+    selectProf.addEventListener("change", function () {
+        const profId = this.value;
+        selectCorso.innerHTML = "<option value=''>-- Seleziona corso --</option>";
+        selectCorso.disabled = !profId;
 
-    selectAnno.innerHTML = "<option value=''>-- Seleziona prima un corso --</option>";
-    selectAnno.disabled = true;
-    selectAppello.innerHTML = "<option value=''>-- Seleziona prima un anno --</option>";
-    selectAppello.disabled = true;
+        selectAnno.innerHTML = "<option value=''>-- Seleziona prima un corso --</option>";
+        selectAnno.disabled = true;
+        selectAppello.innerHTML = "<option value=''>-- Seleziona prima un anno --</option>";
+        selectAppello.disabled = true;
 
-    if (!profId) return;
+        if (!profId) return;
 
-    const corsi = dati.filter(r => r.professore_id === profId);
-    corsi.forEach(c => {
-        const opt = document.createElement("option");
-        opt.value = c.corso_id;
-        opt.textContent = c.nome_corso;
-        selectCorso.appendChild(opt);
+        const corsi = dati.filter(r => r.professore_id === profId);
+        corsi.forEach(c => {
+            const opt = document.createElement("option");
+            opt.value = c.corso_id;
+            opt.textContent = c.nome_corso;
+            selectCorso.appendChild(opt);
+        });
     });
-});
 
-// Corso → Anni
-selectCorso.addEventListener("change", function () {
-    const profId = selectProf.value;
-    const corsoId = this.value;
+    // Corso → Anni
+    selectCorso.addEventListener("change", function () {
+        const profId = selectProf.value;
+        const corsoId = this.value;
 
-    selectAnno.innerHTML = "<option value=''>-- Seleziona anno --</option>";
-    selectAnno.disabled = !corsoId;
-    selectAppello.innerHTML = "<option value=''>-- Seleziona prima un anno --</option>";
-    selectAppello.disabled = true;
+        selectAnno.innerHTML = "<option value=''>-- Seleziona anno --</option>";
+        selectAnno.disabled = !corsoId;
+        selectAppello.innerHTML = "<option value=''>-- Seleziona prima un anno --</option>";
+        selectAppello.disabled = true;
 
-    if (!profId || !corsoId) return;
+        if (!profId || !corsoId) return;
 
-    const anni = [...new Set(dati
-        .filter(r => r.professore_id === profId && r.corso_id === corsoId)
-        .map(r => r.anno_accademico))];
-    
-    anni.forEach(a => {
-        const opt = document.createElement("option");
-        opt.value = a;
-        opt.textContent = a;
-        selectAnno.appendChild(opt);
+        const anni = [...new Set(dati
+            .filter(r => r.professore_id === profId && r.corso_id === corsoId)
+            .map(r => r.anno_accademico))];
+        
+        anni.forEach(a => {
+            const opt = document.createElement("option");
+            opt.value = a;
+            opt.textContent = a;
+            selectAnno.appendChild(opt);
+        });
     });
-});
 
-// Anno → Appelli
-selectAnno.addEventListener("change", function () {
-    const profId = selectProf.value;
-    const corsoId = selectCorso.value;
-    const anno = this.value;
+    // Anno → Appelli
+    selectAnno.addEventListener("change", function () {
+        const profId = selectProf.value;
+        const corsoId = selectCorso.value;
+        const anno = this.value;
 
-    selectAppello.innerHTML = "<option value=''>-- Seleziona appello --</option>";
-    selectAppello.disabled = !anno;
+        selectAppello.innerHTML = "<option value=''>-- Seleziona appello --</option>";
+        selectAppello.disabled = !anno;
 
-    if (!profId || !corsoId || !anno) return;
+        if (!profId || !corsoId || !anno) return;
 
-    const appelliFiltrati = appelli
-        .filter(r => r.professore_id === profId && r.corso_id === corsoId && r.anno_accademico === anno)
-        .sort((a,b) => new Date(a.data_appello) - new Date(b.data_appello));
+        const appelliFiltrati = appelli
+            .filter(r => r.professore_id === profId && r.corso_id === corsoId && r.anno_accademico === anno)
+            .sort((a,b) => new Date(a.data_appello) - new Date(b.data_appello));
 
-    appelliFiltrati.forEach(r => {
-    const opt = document.createElement("option");
-    opt.value = r.data_appello; // <-- VALORE DEVE RESTARE YYYY-MM-DD (FK)
-    opt.textContent = r.data_appello.split("-").reverse().join("/"); // <-- solo visualizzazione DD/MM/YYYY
-    selectAppello.appendChild(opt);
-});
+        appelliFiltrati.forEach(r => {
+        const opt = document.createElement("option");
+        opt.value = r.data_appello; // <-- VALORE DEVE RESTARE YYYY-MM-DD (FK)
+        opt.textContent = r.data_appello.split("-").reverse().join("/"); // <-- solo visualizzazione DD/MM/YYYY
+        selectAppello.appendChild(opt);
+    });
 
-});
-
+    }); 
 </script>
+
+<!-- JS separato 
+<script src="/Progetto_Tecnologie_Web_2026/js/script.js"></script>-->

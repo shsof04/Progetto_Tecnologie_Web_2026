@@ -12,9 +12,16 @@ $templateParams["utente"] = [
  
 $templateParams["titolo"] = 'UniboRankings - Profilo';
 $templateParams["nome"] = 'profilo-utente.php';
-
 $templateParams["baseUrl"] = $baseUrl;
-$templateParams["recensioniutente"] = $dbh->getReviewsByUser($_SESSION['utente_id']);
+
+// Controllo se l'utente è admin
+if ($_SESSION["ruolo"] === "ADMIN") {
+    // Admin vede tutte le recensioni
+    $templateParams["recensioniutente"] = $dbh->getAllReviews();
+} else {
+    // Utenti normali vedono solo le proprie recensioni
+    $templateParams["recensioniutente"] = $dbh->getReviewsByUser($_SESSION['utente_id']);
+}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $oldPassword = $_POST["password"] ?? "";

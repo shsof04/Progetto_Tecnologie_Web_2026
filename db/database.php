@@ -64,7 +64,17 @@ class DatabaseHelper{
     $result = $stmt->get_result();
     return $result->fetch_all(MYSQLI_ASSOC);
 
-}
+    }
+
+    public function getAllReviews() {
+        $stmt = $this->db->prepare("SELECT *, 
+        COALESCE(data_modifica, data_creazione) AS data_pubblicazione FROM recensione 
+        ORDER BY data_pubblicazione DESC");
+        
+        $stmt->execute();
+        $result = $stmt->get_result();       
+        return $result->fetch_all(MYSQLI_ASSOC); 
+    }
 
     public function getReviewsByUser($user_id){
         $stmt = $this->db->prepare("SELECT *, 
@@ -311,6 +321,5 @@ class DatabaseHelper{
     }
  
 }
-
 
 ?>
