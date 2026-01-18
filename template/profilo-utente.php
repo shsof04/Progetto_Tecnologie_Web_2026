@@ -29,19 +29,39 @@
         </header>
 
         <p>
-        <span><strong>Voto recensione:</strong> <?php echo $recensione["voto_recensione"]; ?>/10</span> •
-        <span><strong>Voto esame:</strong> <?php echo $recensione["voto_esame"]; ?></span> •
-        <span><strong>Appello:</strong> <?php echo $recensione["data_appello"]; ?></span>
+            <span><strong>Professore:</strong> <?php echo $recensione["nome_professore"]; ?></span> •
+            <span><strong>Corso:</strong> <?php echo $recensione["corso_id"]; ?></span> •
+            <span><strong>Appello:</strong> <?php echo $recensione["data_appello"]; ?></span><br/>
+            <span><strong>Voto recensione:</strong> <?php echo $recensione["voto_recensione"]; ?>/10</span> •
+            <span><strong>Voto esame:</strong> <?php echo $recensione["voto_esame"]; ?></span><br/>
         </p>
 
         <p class="review-text">
         <?php echo $recensione["testo"]; ?>
         </p>
-        <input class="button" type="submit" value="Modifica" />
+        <!--<input class="button" type="submit" value="Modifica" />
         <input class="button" type="reset" value="Elimina" />
-        <!--Meglio così per quando passare a PHP?
+        Meglio così per quando passare a PHP?
             <button type="button" class="button">Modifica</button>
             <button type="button" class="button">Elimina</button>-->
+        <div class="review-actions">
+            <a class="button" href="/Progetto_Tecnologie_Web_2026/review.php?action=modifica
+                &utente_id=<?php echo $recensione["utente_id"]; ?>
+                &professore_id=<?php echo $recensione["professore_id"]; ?>
+                &corso_id=<?php echo $recensione["corso_id"]; ?>
+                &anno_accademico=<?php echo $recensione["anno_accademico"]; ?>
+                &data_appello=<?php echo $recensione["data_appello"]; ?>"
+            >Modifica</a>
+
+            <a class="button" href="/Progetto_Tecnologie_Web_2026/review.php?action=cancella
+                &utente_id=<?php echo $recensione["utente_id"]; ?>
+                &professore_id=<?php echo $recensione["professore_id"]; ?>
+                &corso_id=<?php echo $recensione["corso_id"]; ?>
+                &anno_accademico=<?php echo $recensione["anno_accademico"]; ?>
+                &data_appello=<?php echo $recensione["data_appello"]; ?>"
+                onclick="return confirm('Sei sicuro di voler cancellare questa recensione?');"
+            >Elimina</a>
+        </div>
     </article>
     <?php endforeach; ?>
 </section>

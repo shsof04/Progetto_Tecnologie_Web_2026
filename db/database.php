@@ -66,7 +66,7 @@ class DatabaseHelper{
 
     }
 
-    public function getAllReviews() {
+    /*public function getAllReviews() {
         $stmt = $this->db->prepare("SELECT *, 
         COALESCE(data_modifica, data_creazione) AS data_pubblicazione FROM recensione 
         ORDER BY data_pubblicazione DESC");
@@ -86,7 +86,37 @@ class DatabaseHelper{
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    }*/
+
+    public function getAllReviewsWithProfessor() {
+        $stmt = $this->db->prepare("SELECT r.*,
+           
+                p.nome AS nome_professore,
+                COALESCE(r.data_modifica, r.data_creazione) AS data_pubblicazione
+            FROM recensione r
+            JOIN professore p ON r.professore_id = p.professore_id
+            ORDER BY data_pubblicazione DESC
+        ");
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+
+    public function getReviewsWithProfessorByUser($utente_id){
+        $query = "SELECT r.*, p.nome AS nome_professore, COALESCE(data_modifica, data_creazione) AS data_pubblicazione
+                FROM recensione r
+                JOIN professore p ON r.professore_id = p.professore_id
+                WHERE r.utente_id = ?
+                ORDER BY data_pubblicazione DESC";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $utente_id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
 
     public function getProfessorById($professore_id){
         $stmt = $this->db->prepare("SELECT nome, professore_id, immagineprofilo 
@@ -166,23 +196,32 @@ class DatabaseHelper{
     }
 
     public function insertRecensione($utente_id, $professore_id, $corso_id, $anno_accademico, 
-        $voto_recensione, $voto_esame, $data_appello, $testo){
-        if ($voto_esame === null){
-            $stmt = $this->db->prepare("INSERT INTO recensione 
-                (utente_id, professore_id, corso_id, anno_accademico, voto_recensione, voto_esame, data_appello, testo)
-                VALUES (?, ?, ?, ?, ?, NULL, ?, ?)");
-           
-            $stmt->bind_param("sssiiss", $utente_id, $professore_id, $corso_id, $anno_accademico, $voto_recensione, $data_appello, $testo);
-        } else {
-            $stmt = $this->db->prepare("INSERT INTO recensione 
-                (utente_id, professore_id, corso_id, anno_accademico, voto_recensione, voto_esame, data_appello, testo)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-           
-            $stmt->bind_param("ssssiiss", $utente_id, $professore_id, $corso_id, $anno_accademico, $voto_recensione, $voto_esame, $data_appello, $testo);
-        }
-        return $stmt->execute();
+        $voto_recensione, $voto_esame, $data_appello, $testo) {
 
+        if ($voto_esame === null) {
+            // Caso "respinto" -> voto_esame = NULL
+            $query = "INSERT INTO recensione 
+                    (utente_id, professore_id, corso_id, anno_accademico, voto_recensione, voto_esame, data_appello, testo)
+                    VALUES (?, ?, ?, ?, ?, NULL, ?, ?)";
+            $stmt = $this->db->prepare($query);
+            // Tipi: s = string, i = int
+            $stmt->bind_param("ssssiss", 
+                $utente_id, $professore_id, $corso_id, $anno_accademico, $voto_recensione, $data_appello, $testo
+            );
+        } else {
+            // Caso con voto esame numerico
+            $query = "INSERT INTO recensione 
+                    (utente_id, professore_id, corso_id, anno_accademico, voto_recensione, voto_esame, data_appello, testo)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ssssiiss", 
+                $utente_id, $professore_id, $corso_id, $anno_accademico, $voto_recensione, $voto_esame, $data_appello, $testo
+            );
+        }
+
+        return $stmt->execute();
     }
+
 
     public function getAllProfessors(){
         $stmt = $this->db->prepare("SELECT * FROM professore");
@@ -317,6 +356,38 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // Recupera una recensione tramite chiave composta
+    public function getReviewByKeys($utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello){
+        $query = "SELECT * FROM recensione 
+                  WHERE utente_id = ? AND professore_id = ? AND corso_id = ? 
+                    AND anno_accademico = ? AND data_appello = ?";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sssss", $utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc(); // ritorna un array singolo
+    }
+
+    // Modifica recensione
+    public function updateReview($utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello, $voto_recensione, $voto_esame, $testo){
+        $query = "UPDATE recensione SET voto_recensione = ?, voto_esame = ?, testo = ?, data_modifica = CURRENT_TIMESTAMP
+                  WHERE utente_id = ? AND professore_id = ? AND corso_id = ? AND anno_accademico = ? AND data_appello = ?";
+        
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("iiisssss", $voto_recensione, $voto_esame, $testo, $utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello);
+        return $stmt->execute();
+    }
+
+    // Cancella recensione
+    public function deleteReview($utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello){
+        $query = "DELETE FROM recensione 
+                  WHERE utente_id = ? AND professore_id = ? AND corso_id = ? AND anno_accademico = ? AND data_appello = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sssss", $utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello);
+        return $stmt->execute();
     }
  
 }

@@ -17,10 +17,10 @@ $templateParams["baseUrl"] = $baseUrl;
 // Controllo se l'utente è admin
 if ($_SESSION["ruolo"] === "ADMIN") {
     // Admin vede tutte le recensioni
-    $templateParams["recensioniutente"] = $dbh->getAllReviews();
+    $templateParams["recensioniutente"] = $dbh->getAllReviewsWithProfessor();
 } else {
     // Utenti normali vedono solo le proprie recensioni
-    $templateParams["recensioniutente"] = $dbh->getReviewsByUser($_SESSION['utente_id']);
+    $templateParams["recensioniutente"] = $dbh->getReviewsWithProfessorByUser($_SESSION['utente_id']);
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
