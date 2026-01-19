@@ -1,13 +1,13 @@
-<h2>Professori più Consigliati</h2>
+<h2>Docenti più Consigliati</h2>
 
 <section>
   <form class="search-bar" role="search">
     <label class="visually-hidden" for="search">Cerca Professore</label>
-    <input id="search" type="search" placeholder="Cerca Professore" />
+    <input id="search" type="search" placeholder="Cerca Docente o Corso" />
     <button type="submit" class="search-btn">Cerca</button>
   </form>
 
-  <ul id="results"></ul>
+<ul id="results"></ul>
 </section>
 
 <section>

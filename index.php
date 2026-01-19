@@ -13,6 +13,10 @@ $templateParams["nome"] = "home.php";
 
 $templateParams["baseUrl"] = $baseUrl;
 
+
+// script per filtrare risultati nella search bar
+$templateParams["scripts"] = ["js/search.js"];
+
 // dati per la tabella (dal DB)
 $templateParams["ranking"] = $dbh->getProfessorRankings();
 

@@ -66,5 +66,26 @@
       <li><a href="https://www.unibo.it/it">Sito Unibo</a></li>
     </ul>
   </footer>
+
+
+  <?php
+    // Script opzionali specifici per pagina.
+    // Uso $templateParams["scripts"] = ["js/search.js", ...]
+    $baseUrlLocal = $templateParams["baseUrl"] ?? rtrim(dirname($_SERVER['SCRIPT_NAME']), "/\\");
+    if ($baseUrlLocal === "/") { $baseUrlLocal = ""; }
+
+    $scripts = $templateParams["scripts"] ?? [];
+    if (!is_array($scripts)) { $scripts = [$scripts]; }
+
+    foreach ($scripts as $src) {
+      if (empty($src)) continue;
+      $src = ltrim($src, "/");
+      echo '<script src="' . htmlspecialchars($baseUrlLocal . '/' . $src) . '"></script>';
+    }
+  ?>
+
+
+
+
 </body>
 </html>
