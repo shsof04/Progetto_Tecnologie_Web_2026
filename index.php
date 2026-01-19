@@ -11,11 +11,8 @@ requireLogin();
 $templateParams["titolo"] = "UniboRankings - Home";
 $templateParams["nome"] = "home.php"; 
 
-$templateParams["baseUrl"] = $baseUrl;
 
-
-// script per filtrare risultati nella search bar
-$templateParams["scripts"] = ["js/search.js"];
+$templateParams["js"] = ["js/search.js"]; 
 
 // dati per la tabella (dal DB)
 $templateParams["ranking"] = $dbh->getProfessorRankings();

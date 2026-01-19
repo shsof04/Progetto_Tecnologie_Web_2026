@@ -6,8 +6,6 @@
     <input id="search" type="search" placeholder="Cerca Docente o Corso" />
     <button type="submit" class="search-btn">Cerca</button>
   </form>
-
-<ul id="results"></ul>
 </section>
 
 <section>
@@ -45,7 +43,7 @@
       <tr>
         <th id="<?php echo htmlspecialchars($rowId); ?>"><?php echo $pos; ?></th>
 
-        
+
         <td headers="<?php echo htmlspecialchars($rowId); ?> docente">
           <a href="professors.php?professore_id=<?php echo urlencode($row['professore_id']); ?>&amp;corso_id=<?php echo urlencode($row['corso_id']); ?>">
             <?php echo htmlspecialchars($row["docente"]); ?>
@@ -54,7 +52,8 @@
 
         <td headers="<?php echo htmlspecialchars($rowId); ?> corso">
           <?php echo htmlspecialchars($row["corso"]); ?>
-        </td>  
+        </td>
+
 
         <td headers="<?php echo htmlspecialchars($rowId); ?> mediarecensioni"><?php echo number_format((float)$row["media_recensioni"], 1); ?></td>
         <td headers="<?php echo htmlspecialchars($rowId); ?> mediaesami"><?php echo number_format((float)$row["media_esami"], 0); ?></td>

@@ -6,7 +6,6 @@
     <input id="search" type="search" placeholder="Cerca Corso o Docente" />
     <button type="submit" class="search-btn">Cerca</button>
   </form>
-  <ul id="results"></ul>
 </section>
 
 <section>
