@@ -96,11 +96,11 @@ function uploadImage($path, $image){
 
 //per modifica ed elimina recensione
 
-//da modificare nel caso serva
+//da modificare nel caso serva, da eliminare?
 function getEmptyArticle(){
     return array("idarticolo" => "", "titoloarticolo" => "", "imgarticolo" => "", "testoarticolo" => "", "anteprimaarticolo" => "", "categorie" => array());
 }
-
+//da ELIMINARE
 function getAction($action){
     $result = "";
     switch($action){

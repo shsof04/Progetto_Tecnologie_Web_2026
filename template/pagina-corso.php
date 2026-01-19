@@ -3,10 +3,9 @@
 <section>
   <form class="search-bar" role="search" onsubmit="return false;">
     <label class="visually-hidden" for="search">Cerca Corso</label>
-    <input id="search" type="search" placeholder="Cerca Corso" />
+    <input id="search" type="search" placeholder="Cerca Corso o Docente" />
     <button type="submit" class="search-btn">Cerca</button>
   </form>
-  <ul id="results"></ul>
 </section>
 
 <section>

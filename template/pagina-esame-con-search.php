@@ -1,5 +1,12 @@
-
 <h2>Esami <?php echo htmlspecialchars($templateParams["anno_accademico"] ?? ""); ?>:</h2>
+
+<section>
+  <form class="search-bar" role="search">
+    <label class="visually-hidden" for="search">Cerca Esame</label>
+    <input id="search" type="search" placeholder="Cerca Esame" />
+    <button type="submit" class="search-btn">Cerca</button>
+  </form>
+</section>
 
 <section class="listexams">
   <ul>

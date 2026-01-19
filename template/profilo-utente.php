@@ -1,31 +1,32 @@
-<!-- mancano i bottoni di elimina e modifica -->            
-            
+<?php
+$img = $templateParams["utente"]["immagineprofilo"] ?? "";
+// Se nel DB c'e solo il nome file, aggiungo la cartella resources/
+if($img !== "" && strpos($img, "/") === false){
+    $img = "resources/" . $img;
+}
+?>
+
 <h2>Profilo</h2>
 
 <section class="profile-head">
     <ul>
-        <li><img class="profile-avatar" src="<?php echo $templateParams["utente"]["immagineprofilo"]; ?>" alt="Foto profilo" /></li>
-        <li class="profile-name"><?php echo $templateParams["utente"]["nome"]; ?><br><span class="profile-email"><?php echo $templateParams["utente"]["utente_id"]; ?></span></li>
+        <li>
+            <img class="profile-avatar" src="<?php echo $img; ?>" alt="Foto profilo" />
+        </li>
+        <li class="profile-name">
+            <?php echo $templateParams["utente"]["nome"]; ?><br>
+            <span class="profile-email"><?php echo $templateParams["utente"]["utente_id"]; ?></span>
+        </li>
     </ul>
 </section>
-  <!--          <section class="profile-head">
-                <ul>
-                    <li>
-                    <img class="profile-avatar"
-                        src="<?php echo htmlspecialchars($templateParams["baseUrl"] . "/resources/" . $templateParams["utente"]["immagineprofilo"]); ?>"
-                        alt="Foto profilo" />
-                    </li>
-                    <li class="profile-name"><?php echo $templateParams["utente"]["nome"] ?><br><span class="profile-email"><?php echo $templateParams["utente"]["utente_id"] ?></span></li>
-                </ul>
-            </section>-->
 
-<h3>Recensioni: </h3> 
+<h3>Recensioni:</h3>
 
 <section class="reviews">
     <?php foreach($templateParams["recensioniutente"] as $recensione): ?>
     <article class="review">
         <header>
-        <strong class="review-date"><?php echo $recensione["data_pubblicazione"]; ?></strong>
+            <strong class="review-date"><?php echo $recensione["data_pubblicazione"]; ?></strong>
         </header>
 
         <p>
@@ -37,7 +38,7 @@
         </p>
 
         <p class="review-text">
-        <?php echo $recensione["testo"]; ?>
+            <?php echo $recensione["testo"]; ?>
         </p>
         <!--<input class="button" type="submit" value="Modifica" />
         <input class="button" type="reset" value="Elimina" />
@@ -66,9 +67,8 @@
     <?php endforeach; ?>
 </section>
 
-<h3>Cambia Password: </h3> 
+<h3>Cambia Password:</h3>
 
-<!-- Messaggi di errore o successo -->
 <?php if (isset($templateParams["errore"])): ?>
     <p class="error"><?php echo $templateParams["errore"]; ?></p>
 <?php endif; ?>
@@ -81,13 +81,16 @@
     <form class="form" action="#" method="POST">
         <ul>
             <li>
-                <label for="password">Password Attuale:</label><input type="password" id="password" name="password" required />
+                <label for="password">Password Attuale:</label>
+                <input type="password" id="password" name="password" required />
             </li>
             <li>
-                <label for="passwordnew">Nuova Password:</label><input type="password" id="passwordnew" name="passwordnew" required />
+                <label for="passwordnew">Nuova Password:</label>
+                <input type="password" id="passwordnew" name="passwordnew" required />
             </li>
             <li>
-                <label for="passwordconfirm">Conferma Nuova Password:</label><input type="password" id="passwordconfirm" name="passwordconfirm" required />
+                <label for="passwordconfirm">Conferma Nuova Password:</label>
+                <input type="password" id="passwordconfirm" name="passwordconfirm" required />
             </li>
             <li>
                 <input class="button" type="submit" name="submit" value="Aggiorna Password" />
