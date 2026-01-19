@@ -34,7 +34,7 @@
     <nav>
       <ul>
         <li><a <?php isActive('index.php'); ?> href="index.php">Home</a></li>
-        <li><a <?php isActive('review.php'); ?> href="review.php">Scrivi una recensione</a></li>
+        <li><a <?php isActive('review.php'); ?> href="review.php?action=1">Scrivi una recensione</a></li>
       </ul>
     </nav>
   <?php endif; ?>
@@ -56,7 +56,7 @@
             <li><a <?php isActive('courses.php'); ?> href="courses.php">Corsi</a></li>
             <li><a <?php isActive('exams.php'); ?> href="exams.php">Esami</a></li>
             <li><a <?php isActive('profile.php'); ?> href="profile.php">Profilo</a></li>
-            <li><a <?php isActive('review.php'); ?> href="review.php">Scrivi una recensione</a></li>
+            <li><a <?php isActive('review.php'); ?> href="review.php?action=1">Scrivi una recensione</a></li>
           </ul>
         </section>
         <section>

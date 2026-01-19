@@ -167,7 +167,6 @@ class DatabaseHelper{
         return $stmt->get_result()->fetch_assoc();
     }
 
-
     public function changePassword($utente_id, $oldPassword, $newPassword) {
         $stmt = $this->db->prepare( "SELECT password FROM utente WHERE utente_id = ?");
                    
@@ -359,25 +358,37 @@ class DatabaseHelper{
     }
 
     // Recupera una recensione tramite chiave composta
-    public function getReviewByKeys($utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello){
-        $query = "SELECT * FROM recensione 
-                  WHERE utente_id = ? AND professore_id = ? AND corso_id = ? 
-                    AND anno_accademico = ? AND data_appello = ?";
-
+    public function getReviewByKeys($utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello) {
+        $query = "SELECT r.*, p.nome AS nome_professore, c.nome AS nome_corso
+                FROM recensione r
+                JOIN professore p ON r.professore_id = p.professore_id
+                JOIN corso c ON r.corso_id = c.corso_id
+                WHERE r.utente_id = ? AND r.professore_id = ? AND r.corso_id = ? AND r.anno_accademico = ? AND r.data_appello = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("sssss", $utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_assoc(); // ritorna un array singolo
+        return $result->fetch_assoc();
     }
 
+
     // Modifica recensione
-    public function updateReview($utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello, $voto_recensione, $voto_esame, $testo){
-        $query = "UPDATE recensione SET voto_recensione = ?, voto_esame = ?, testo = ?, data_modifica = CURRENT_TIMESTAMP
-                  WHERE utente_id = ? AND professore_id = ? AND corso_id = ? AND anno_accademico = ? AND data_appello = ?";
-        
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("iiisssss", $voto_recensione, $voto_esame, $testo, $utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello);
+    public function updateReview($utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello, $voto_recensione, $voto_esame, $testo) {
+        // Se voto_esame è NULL, lo scriviamo direttamente nella query
+        if ($voto_esame === null) {
+            $query = "UPDATE recensione
+                    SET voto_recensione = ?, voto_esame = NULL, testo = ?, data_modifica = CURRENT_TIMESTAMP
+                    WHERE utente_id = ? AND professore_id = ? AND corso_id = ? AND anno_accademico = ? AND data_appello = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("issssss", $voto_recensione, $testo, $utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello);
+        } else {
+            $query = "UPDATE recensione
+                    SET voto_recensione = ?, voto_esame = ?, testo = ?, data_modifica = CURRENT_TIMESTAMP
+                    WHERE utente_id = ? AND professore_id = ? AND corso_id = ? AND anno_accademico = ? AND data_appello = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("iissssss", $voto_recensione, $voto_esame, $testo, $utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello);
+        }
+
         return $stmt->execute();
     }
 

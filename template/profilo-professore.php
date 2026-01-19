@@ -32,7 +32,7 @@ if($img !== "" && strpos($img, "/") === false){
 
         <p>
             <span><strong>Voto recensione:</strong> <?php echo $recensione["voto_recensione"]; ?>/10</span> •
-            <span><strong>Voto esame:</strong> <?php echo $recensione["voto_esame"]; ?></span> •
+            <span><strong>Voto esame:</strong> <?php echo $recensione["voto_esame"] === null ? "Respinto" : $recensione["voto_esame"]; ?></span> •
             <span><strong>Appello:</strong> <?php echo $recensione["data_appello"]; ?></span>
         </p>
 
