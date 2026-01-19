@@ -107,7 +107,7 @@ function getAction($action){
         case 1:
             $result = "Modifica";
             break;
-        case 1:
+        case 2:
             $result = "Cancella";
             break;
     }

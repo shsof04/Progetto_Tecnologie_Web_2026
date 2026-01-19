@@ -45,7 +45,7 @@
             <button type="button" class="button">Modifica</button>
             <button type="button" class="button">Elimina</button>-->
         <div class="review-actions">
-            <a class="button" href="/Progetto_Tecnologie_Web_2026/review.php?action=modifica
+            <a class="button" href="/Progetto_Tecnologie_Web_2026/review.php?action=1
                 &utente_id=<?php echo $recensione["utente_id"]; ?>
                 &professore_id=<?php echo $recensione["professore_id"]; ?>
                 &corso_id=<?php echo $recensione["corso_id"]; ?>
@@ -53,7 +53,7 @@
                 &data_appello=<?php echo $recensione["data_appello"]; ?>"
             >Modifica</a>
 
-            <a class="button" href="/Progetto_Tecnologie_Web_2026/review.php?action=cancella
+            <a class="button" href="/Progetto_Tecnologie_Web_2026/review.php?action=2
                 &utente_id=<?php echo $recensione["utente_id"]; ?>
                 &professore_id=<?php echo $recensione["professore_id"]; ?>
                 &corso_id=<?php echo $recensione["corso_id"]; ?>

@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if ($dbh->checkReviewExists($utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello)) {
-        $templateParams["errore"] = "Hai già scritto una recensione per questo appello!";
+        $templateParams["errore"] = "Hai già scritto una recensione per questo appello.";
     } else {
         $ok = $dbh->insertRecensione($utente_id, $professore_id, $corso_id, $anno_accademico, $voto_recensione, $voto_esame, $data_appello, $testo);                            
 
@@ -40,6 +40,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
 }
+
+if (isset($_GET['action']) && $_GET['action'] == 2) {
+    $utente_id = $_GET['utente_id'];
+    $professore_id = $_GET['professore_id'];
+    $corso_id = $_GET['corso_id'];
+    $anno_accademico = $_GET['anno_accademico'];
+    $data_appello = $_GET['data_appello'];
+
+    $dbh->deleteReview($utente_id, $professore_id, $corso_id, $anno_accademico, $data_appello);
+    header("Location: profile.php?msg=Recensione cancellata!");
+    exit;
+}
+
 
 require("template/base.php");
 
