@@ -435,3 +435,44 @@ fieldset textarea{
 fieldset ul li{
 	margin: 10px 0;
 }
+
+
+
+
+
+
+
+
+
+/*PERCHE NON VA*/
+.search-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 15px 5% 10px;
+  flex-wrap: wrap;
+}
+
+.filter-bar{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-bar select{
+  padding: 4px 10px;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+/* dentro search-row non voglio il 40% della pagina */
+.search-row .search-bar{
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.search-row .search-bar input{
+  width: 320px;
+  max-width: 100%;
+}

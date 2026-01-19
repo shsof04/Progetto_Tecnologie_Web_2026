@@ -310,6 +310,61 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+
+    // anni accademici disponibili (presi dagli appelli)
+public function getAcademicYears(){
+    $query = "SELECT DISTINCT anno_accademico
+              FROM appello
+              ORDER BY anno_accademico DESC";
+
+    $stmt = $this->db->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_all(MYSQLI_ASSOC);
+}
+
+public function getExamsAllYears(){
+    $query = "SELECT a.anno_accademico,
+                     a.professore_id,
+                     p.nome AS professore_nome,
+                     a.corso_id,
+                     c.nome AS corso_nome,
+                     CASE
+                       WHEN iL.professore_id IS NOT NULL THEN 'LEZIONI'
+                       WHEN iB.professore_id IS NOT NULL THEN 'LABORATORIO'
+                       ELSE ''
+                     END AS ruolo,
+                     a.data_appello,
+                     ROUND(AVG(r.voto_esame),1) AS media_voto_esame,
+                     ROUND(AVG(r.voto_recensione),1) AS media_voto_recensione,
+                     COUNT(r.utente_id) AS num_recensioni
+              FROM appello a
+              JOIN professore p ON p.professore_id = a.professore_id
+              JOIN corso c ON c.corso_id = a.corso_id
+              LEFT JOIN insegnamento iL
+                ON iL.professore_id = a.professore_id
+               AND iL.corso_id = a.corso_id
+               AND iL.anno_accademico = a.anno_accademico
+               AND iL.ruolo = 'LEZIONI'
+              LEFT JOIN insegnamento iB
+                ON iB.professore_id = a.professore_id
+               AND iB.corso_id = a.corso_id
+               AND iB.anno_accademico = a.anno_accademico
+               AND iB.ruolo = 'LABORATORIO'
+              LEFT JOIN recensione r
+                ON r.professore_id = a.professore_id
+               AND r.corso_id = a.corso_id
+               AND r.anno_accademico = a.anno_accademico
+               AND r.data_appello = a.data_appello
+              GROUP BY a.professore_id, a.corso_id, a.anno_accademico, a.data_appello
+              ORDER BY a.anno_accademico DESC, a.data_appello DESC, c.nome ASC";
+
+    $stmt = $this->db->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_all(MYSQLI_ASSOC);
+}
+
     // Appelli (esami) per anno accademico con media voti (dalle recensioni)
     public function getExamsByAcademicYear($anno_accademico){
         // appello non ha "ruolo", quindi lo inferiamo da insegnamento.

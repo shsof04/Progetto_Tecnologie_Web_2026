@@ -22,7 +22,7 @@ $sel  = $templateParams["anno_accademico"] ?? CURRENT_AA;
       </option>
     <?php endforeach; ?>
   </select>
-  <input class="search-btn" type="submit" value="Vai" />
+  <input class="button" type="submit" value="Vai" />
 </form>
 
 
