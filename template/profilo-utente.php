@@ -42,7 +42,7 @@ if($img !== "" && strpos($img, "/") === false){
         </p>
 
         <div class="review-actions">
-            <a class="button" href="/Progetto_Tecnologie_Web_2026/review.php?action=2
+            <a class="button" href="./review.php?action=2
                 &utente_id=<?php echo $recensione["utente_id"]; ?>
                 &professore_id=<?php echo $recensione["professore_id"]; ?>
                 &corso_id=<?php echo $recensione["corso_id"]; ?>
@@ -50,7 +50,7 @@ if($img !== "" && strpos($img, "/") === false){
                 &data_appello=<?php echo $recensione["data_appello"]; ?>"
             >Modifica</a>
 
-            <a class="button" href="/Progetto_Tecnologie_Web_2026/review.php?action=3
+            <a class="button" href="./review.php?action=3
                 &utente_id=<?php echo $recensione["utente_id"]; ?>
                 &professore_id=<?php echo $recensione["professore_id"]; ?>
                 &corso_id=<?php echo $recensione["corso_id"]; ?>
