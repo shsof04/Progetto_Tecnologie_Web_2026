@@ -4,7 +4,7 @@ body, h1, ul, header{
 }
 
 /* controlli e bottoni */
-input, button, textarea, select{
+input, button, textarea, select, a.button{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -205,6 +205,15 @@ table tr td a:hover, .listexams a:hover{
   font-size: 15px;
 }
 
+/* bottoni “link” fuori dal form */
+a.button {
+    display: inline-block;    
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    font-size: 14px;
+}
+
 /*Sezione cambia password, login e review*/
 .form{
   background: #f8f5f5;
@@ -243,7 +252,7 @@ table tr td a:hover, .listexams a:hover{
 	box-sizing: border-box;
 }
 
-.button{
+.button, a.button{
   padding: 10px 14px;
   border: 2px solid #ce0303;
   background: #f8f5f5;
@@ -251,7 +260,7 @@ table tr td a:hover, .listexams a:hover{
   font-weight: bold;
 }
 
-.button:hover{
+.button:hover, a.button:hover{
   color: #ce0303;
 }
 
