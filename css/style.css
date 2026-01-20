@@ -456,38 +456,42 @@ fieldset ul li{
 
 
 
-
-
-
-/*PERCHE NON VA*/
-.search-row{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin: 15px 5% 10px;
-  flex-wrap: wrap;
-}
-
+ 
+/* barra ricerca pagina esami: input + bottone affiancati */
 .filter-bar{
   display: flex;
-  align-items: center;
   gap: 10px;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 
-.filter-bar select{
-  padding: 4px 10px;
+/* input: non troppo largo, ma cresce se serve */
+.filter-bar input{ 
+	width: 40%;
+  padding: 4px 14px;
   border: 1px solid #000;
+}
+
+/* bottone: stile coerente col sito */
+.filter-btn{
+  padding: 8px 14px;
+  border: 2px solid #ce0303;
   background: #fff;
+  cursor: pointer;
+  font-weight: 700;
 }
 
-/* dentro search-row non voglio il 40% della pagina */
-.search-row .search-bar{
-  justify-content: flex-end;
-  flex: 1;
+.filter-btn:hover{
+  color: #ce0303;
 }
 
-.search-row .search-bar input{
-  width: 320px;
-  max-width: 100%;
+.filter-bar label{
+  display: none;
+}
+
+/* su schermi piccoli: se non ci sta, va sotto in modo carino */
+@media screen and (min-width: 768px){
+  .filter-bar input{
+    width: 30%;
+  }
 }

@@ -34,7 +34,7 @@ class DatabaseHelper{
     public function checkLogin($utente_id, $password){
         $query = "SELECT nome, utente_id, ruolo, immagineprofilo
                   FROM utente
-                  WHERE attivo=1 AND utente_id = ? AND password = ?
+                  WHERE attivo=1 AND utente_id = ? AND BINARY password = ?
                   LIMIT 1";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ss", $utente_id, $password);
