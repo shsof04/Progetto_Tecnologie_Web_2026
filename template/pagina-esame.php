@@ -24,7 +24,7 @@
  
 <section>
   <form class="bar" role="search">
-    <label class="visually-hidden" for="search">Cerca Esame</label>
+    <label for="search">Cerca Esame</label>
     <input id="search" type="search" placeholder="Cerca Esame..." />
     <button type="submit" class="btn">Cerca</button>
   </form>

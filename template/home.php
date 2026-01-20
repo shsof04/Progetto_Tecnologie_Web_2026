@@ -2,7 +2,7 @@
 
 <section>
     <form class="bar bar--right" role="search">
-        <label class="visually-hidden" for="search">Cerca Docente o Corso</label>
+        <label for="search">Cerca Docente o Corso</label>
         <input id="search" type="search" placeholder="Cerca Docente o Corso..." />
         <button type="submit" class="btn">Cerca</button>
     </form>
