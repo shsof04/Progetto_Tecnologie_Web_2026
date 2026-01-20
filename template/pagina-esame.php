@@ -1,26 +1,25 @@
 <?php
-$anni = $templateParams["anni_accademici"] ?? [];
-$sel  = $templateParams["anno_accademico"] ?? CURRENT_AA;
+    $anni = $templateParams["anni_accademici"] ?? [];
+    $sel  = $templateParams["anno_accademico"] ?? CURRENT_AA;
 ?>
 
-
 <h2>
-  Esami <?php echo ($sel === "all") ? "(tutti gli anni)" : htmlspecialchars($sel); ?>:
+    Esami <?php echo ($sel === "all") ? "(tutti gli anni)" : htmlspecialchars($sel); ?>:
 </h2>
 
 
 <form class="form" method="get" action="exams.php">
-  <label for="aa">Anno accademico:</label>
-  <select id="aa" name="aa">
-    <option value="all" <?php echo ($sel === "all") ? "selected" : ""; ?>>Tutti</option>
-    <?php foreach($anni as $a): ?>
-      <?php $val = $a["anno_accademico"]; ?>
-      <option value="<?php echo htmlspecialchars($val); ?>" <?php echo ($sel === $val) ? "selected" : ""; ?>>
-        <?php echo htmlspecialchars($val); ?>
-      </option>
-    <?php endforeach; ?>
-  </select>
-  <input class="button" type="submit" value="Vai" />
+    <label for="aa">Anno accademico:</label>
+    <select id="aa" name="aa">
+        <option value="all" <?php echo ($sel === "all") ? "selected" : ""; ?>>Tutti</option>
+        <?php foreach($anni as $a): ?>
+            <?php $val = $a["anno_accademico"]; ?>
+            <option value="<?php echo htmlspecialchars($val); ?>" <?php echo ($sel === $val) ? "selected" : ""; ?>>
+                <?php echo htmlspecialchars($val); ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+    <input class="button" type="submit" value="Vai" />
 </form>
  
 <section>
