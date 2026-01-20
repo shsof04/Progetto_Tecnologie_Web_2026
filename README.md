@@ -35,6 +35,16 @@ Applicazione dove gli studenti possono leggere/scrivere recensioni su professori
 - Possibilità di modificare le proprie recensioni
 - Esistenza di profili admin per gestire le recensioni
 
+# Implementazione, Test e Ottimizzazione:
+
+Dopo aver implementato le funzionalità e realizzato la struttura del sito basandoci sui mockup, abbiamo avviato una fase di test. In questa fase abbiamo simulato scenari d’uso per verificare il corretto funzionamento delle funzionalità principali e valutato con attenzione che il design fosse user-centered.
+
+In seguito ai test, abbiamo apportato alcune modifiche, tra cui:
+- Abbiamo aggiunto delle barre di ricerca per facilitare la visualizzaione del professore/esame
+- Nelle recenzioni visualizzate nella pagina dell'utente vengono aggiunti il nome del professore e il codice del corso
+- Abbiamo spostato il collegamento alla pagina "Esami" dalla pagina professori all'aside
+  
+
 
 
 
