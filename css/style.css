@@ -407,7 +407,7 @@ fieldset ul li{
     display: none;
 }
 
- 
+
 
 @media screen and (min-width: 768px){
 
@@ -439,7 +439,7 @@ fieldset ul li{
     .form{
         width: 70%;
     }
-    
+
     .form li:last-child .button{
         width: 30%; 
     }
