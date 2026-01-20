@@ -9,9 +9,6 @@ $sel  = $templateParams["anno_accademico"] ?? CURRENT_AA;
 </h2>
 
 
-
-
-<!-- DA SISTEMARE css --> 
 <form class="form" method="get" action="exams.php">
   <label for="aa">Anno accademico:</label>
   <select id="aa" name="aa">
@@ -25,16 +22,14 @@ $sel  = $templateParams["anno_accademico"] ?? CURRENT_AA;
   </select>
   <input class="button" type="submit" value="Vai" />
 </form>
-
-
+ 
 <section>
-  <form class="filter-bar" role="search">
+  <form class="bar" role="search">
     <label class="visually-hidden" for="search">Cerca Esame</label>
     <input id="search" type="search" placeholder="Cerca Esame..." />
-    <button type="submit" class="filter-btn">Cerca</button>
-  </form> 
+    <button type="submit" class="btn">Cerca</button>
+  </form>
 </section>
-
 
 <section class="listexams">
   <ul>

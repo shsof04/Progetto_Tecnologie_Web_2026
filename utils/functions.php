@@ -94,25 +94,4 @@ function uploadImage($path, $image){
     return array($result, $msg);
 }
 
-//per modifica ed elimina recensione
-
-//da modificare nel caso serva, da eliminare?
-function getEmptyArticle(){
-    return array("idarticolo" => "", "titoloarticolo" => "", "imgarticolo" => "", "testoarticolo" => "", "anteprimaarticolo" => "", "categorie" => array());
-}
-//da ELIMINARE
-function getAction($action){
-    $result = "";
-    switch($action){
-        case 1:
-            $result = "Modifica";
-            break;
-        case 2:
-            $result = "Cancella";
-            break;
-    }
-
-    return $result;
-}
-
 ?>

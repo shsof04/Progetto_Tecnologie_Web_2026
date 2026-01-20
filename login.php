@@ -39,23 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $templateParams["errorelogin"] = "Credenziali non valide.";
     
 }
-/*
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = $_POST["email"] ?? "";
-    $password = $_POST["password"] ?? "";
-
-    $user = $dbh->checkLogin($email, $password);
-
-    if ($user) {
-        $_SESSION["utente_id"] = $user["utente_id"];
-        $_SESSION["nome"] = $user["nome"];
-        $_SESSION["ruolo"] = $user["ruolo"];
-        header("Location: index.php");
-        exit;
-    } else {
-        $templateParams["errore_login"] = "Email o password sbagliate.";
-    }
-}*/
 
 require("template/base.php");
 ?>
