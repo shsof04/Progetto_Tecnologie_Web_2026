@@ -2,25 +2,25 @@
 
 # UniboRankings 
 
-Applicazione dove gli studenti possono leggere/scrivere recensioni su professori e singoli esami e visualizzare una gradiatoria dei professori più apprezzati.
+Applicazione dove gli studenti possono leggere/scrivere recensioni su professori visualizzare una graduatoria dei professori più apprezzati.
 
 # Specifiche funzionali:
 
-login dell'utente
-pagine in dettaglio per professori ed esami con statistiche
-ricerca per professore e per corso
-possibilità di pubblicare recensioni
-l'amministrazione potrà inserire i professori, modificare i corsi ed eliminare le recensioni, inserire ed eliminare utenti 
+- Login dell'utente.
+- Pagine in dettaglio per professori ed esami con statistiche.
+- Possibilità di pubblicare, modificare ed eliminare recensioni.
+- L'amministratore può gestire tutte le recensioni.
+- Possibilità di modificare la propria password.
 
 
 # Specifiche non funzionali:
 
-sicurezza: protezione password, accessibilità limitata agli studenti iscritti al corso di laurea
-
+- Accessibilità limitata agli studenti iscritti al corso di laurea.
+- Ricerca per professore, per appello e per anno accademico.
+- Controllo sul login: ogni utente può modificare ed eliminare solo le proprie recensioni.
+- Controllo sulle recensioni: ogni utente può pubblicare una sola recensione per appello.
 
 # Esempi di personas e scenarios:
 
 
-# EFFETTO WOW
 
-i professori sembrano familiari
