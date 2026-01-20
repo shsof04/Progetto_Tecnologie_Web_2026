@@ -69,7 +69,7 @@ nav ul li a {
     height: 100%;
     text-decoration: none;  
     padding: 8px 0; 
-	  font-size: 18px;
+	      font-size: 18px;
 }
  
 nav ul li a:hover{
@@ -78,7 +78,7 @@ nav ul li a:hover{
 }
 
 h3{
-	  font-size: 22px;
+	      font-size: 22px;
 }
 
 h2, h3 {
@@ -107,11 +107,11 @@ body{
 }
 
 main {
-	  margin-right: 2%;
+	margin-right: 2%;
 }
 
 main, footer h3, footer ul{
-	  margin-left: 2%;
+	margin-left: 2%;
 }
 
 table{
@@ -134,7 +134,7 @@ table tr:first-child{
 }
 
 table tr td a:hover, .listexams a:hover{ 
-	  font-style: oblique; 
+	font-style: oblique; 
 }
 
 
@@ -145,36 +145,36 @@ aside{
 }
 
 aside a, footer a{
-	  color: #000;
+	color: #000;
 }
 
 aside > section{
-	  padding: 0 5% 20px;
+	padding: 0 5% 20px;
 }
 
 aside > section > ul, footer > ul{
-	  list-style: none;
+	list-style: none;
 }
 
 aside > section > ul > li{
-	  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 aside > section > ul:first-child{
-	  margin-top: 10px;
+	margin-top: 10px;
 }
 
 aside > section > ul:last-child{
-	  margin-bottom: 50px;
+	margin-bottom: 50px;
 }
 
 aside > section > a:hover, footer > ul > li > a:hover{
-	  font-weight: bold;
+	font-weight: bold;
     color: #0400ff;
 }
 
 aside > section > ul > li > a:hover{
-	  font-weight: bold;
+	font-weight: bold;
     color: #ce0303;
 }
 
@@ -185,7 +185,6 @@ footer{
     padding: 30px 0 20px;
     margin-top: auto;
 }
-
 
 
 
@@ -262,7 +261,7 @@ a.button {
 }
 
 .form, .form ul, .form li, .form label, .form input{
-	  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .button, a.button{
@@ -288,13 +287,13 @@ a.button {
 
 
 .section-login {
-	  margin-top: 20px;
+	margin-top: 20px;
 }
 
 
 /*Valutazione in stelle nella pagina review*/
 fieldset textarea{
-	  margin-top: 6px;
+	margin-top: 6px;
 }
 .rating-wrapper{
     display: flex;
@@ -305,7 +304,7 @@ fieldset textarea{
 }
 
 .rating {
-	  direction: rtl; /* stelle da destra a sinistra */ 
+	direction: rtl; /* stelle da destra a sinistra */ 
     unicode-bidi: bidi-override; 
 }
 
@@ -366,7 +365,7 @@ fieldset textarea{
 }
 
 fieldset ul li{
-	  margin: 10px 0;
+	margin: 10px 0;
 }
 
 
@@ -413,49 +412,40 @@ fieldset ul li{
 @media screen and (min-width: 768px){
 
 	.layout{
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
 	}
 
 	main{ 
-      flex: 1; /* riempie tutto lo spazio a sinistra */ 
-      min-width: 0;
-      margin-left: 1%; /* se vuoi mantenere il tuo spazio */ 
+        flex: 1; /* riempie tutto lo spazio a sinistra */ 
+        min-width: 0;
+        margin-left: 1%; /* se vuoi mantenere il tuo spazio */ 
 	} 
 
 	nav{
-      margin: 0 10%;
-  }
-
-  /*
-	nav ul li{
-		  width: 45%;
-	}
-
-	nav ul li:first-child{
-		  margin-right: 8%;
-	}
-      */
+        margin: 0 10%;
+    }
 
 	aside{ 
-      width: 260px; /* la tua larghezza */ 
-      margin: 60px 2% 0 0; /* un po' di margine a destra */ 
+        width: 260px; /* la tua larghezza */ 
+        margin: 60px 2% 0 0; /* un po' di margine a destra */ 
 	}
 
 	table td, table th{
-      padding: 10px 0;
+        padding: 10px 0;
 	}
 
-  .form{
-	    width: 70%;
-  }
-  .form li:last-child .button{
-      width: 30%; 
-  }
+    .form{
+        width: 70%;
+    }
+    
+    .form li:last-child .button{
+        width: 30%; 
+    }
 
-  .bar input{
-      width: 30%;
-  }
+    .bar input{
+        width: 30%;
+    }
 
 }
