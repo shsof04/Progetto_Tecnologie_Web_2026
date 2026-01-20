@@ -1,6 +1,6 @@
 body, h1, ul, header{
-	  margin: 0;
-	  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 /* controlli e bottoni */
@@ -9,16 +9,16 @@ input, button, textarea, select, a.button{
 }
 
 ul{ 
-	  list-style: none; 
-	  padding: 0; 
-	  margin: 0; 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
 }
 
 header{
-	  background-color: #ce0303;
-	  color: #fff;
-	  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-	  font-size: 20px; 
+	background-color: #ce0303;
+	color: #fff;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-size: 20px; 
 
     display: flex;
     align-items: center;
@@ -36,15 +36,7 @@ header img{
 nav{
     margin: 10px 5% 20px;
 }
- 
-
-nav ul li{
-    display: inline-block;  
-    width: 45%;         
-  	box-sizing: border-box;   
-    text-align: center;  
-    margin: 10px 0 0;  
-}
+  
 
 nav ul li, aside{
     background-color: #f8f5f5;
@@ -68,6 +60,8 @@ nav ul li{
     box-sizing: border-box;
 }
 
+
+
 nav ul li a {
     display: inline-block;
     color: #000;
@@ -75,16 +69,16 @@ nav ul li a {
     height: 100%;
     text-decoration: none;  
     padding: 8px 0; 
-	      font-size: 18px;
+	font-size: 18px;
 }
  
 nav ul li a:hover{
     color: #ce0303;
-	  font-weight: bold;
+	font-weight: bold;
 }
 
 h3{
-	      font-size: 22px;
+	font-size: 22px;
 }
 
 h2, h3 {
