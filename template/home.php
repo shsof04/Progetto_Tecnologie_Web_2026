@@ -1,4 +1,4 @@
-<h2>Docenti più Consigliati</h2>
+<h2>Docenti più Votati</h2>
 
 <section>
     <form class="bar bar--right" role="search">
