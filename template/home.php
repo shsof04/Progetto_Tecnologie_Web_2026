@@ -9,7 +9,7 @@
 </section>
 
 
-<section>
+<section class="table-home">
     <table>
         <tr>
             <th id="posizione">Posizione</th>

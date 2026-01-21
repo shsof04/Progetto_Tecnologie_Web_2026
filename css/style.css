@@ -19,32 +19,36 @@ header{
 	color: #fff;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 	font-size: 20px; 
-
+    box-sizing: border-box;
+    flex-wrap: nowrap;
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 10px 16px;
-
-    width: auto;
+    gap: clamp(6px, 3vw, 12px);
 }
 
 header img{
-    width: 60px;
-    height: 60px;
+    width: clamp(40px, 12vw, 60px); /*viewport width*/
+    height: clamp(40px, 12vw, 60px);
     object-fit: contain;
-    flex: 0 0 auto;
+    flex-shrink: 0;
+}
+
+header h1{
+    white-space: nowrap;
+    min-width: 0;
+    font-size: clamp(28px, 5vw, 32px);
 }
 
 nav{
     margin: 10px 5% 20px;
 }
-  
 
 nav ul li, aside{
     background-color: #f8f5f5;
     border: 5px solid #ce0303;
 }
- 
 
 nav ul{
     display: flex;
@@ -61,8 +65,6 @@ nav ul li{
     margin: 10px 0 0;
     box-sizing: border-box;
 }
-
-
 
 nav ul li a {
     display: inline-block;
@@ -110,7 +112,6 @@ body{
     display: flex;
     flex-direction: column;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    /*  overflow-x: hidden;*/
 }
 
 main {
@@ -145,7 +146,16 @@ table tr td a:hover, .listexams a:hover{
 	font-style: oblique; 
 }
 
+.table-home {
+    width: 100%;
+    overflow-x: auto; /* scroll della tabella */
+}
 
+.table-home table {
+    min-width: 500px;
+    width: 100%;
+    border-collapse: collapse;
+}
 
 aside{
     width: 260px;
@@ -205,8 +215,8 @@ footer{
 }
 
 .profile-avatar{
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     border: 2px solid #ce0303;
     object-fit: cover;
 }
@@ -219,7 +229,6 @@ footer{
     font-weight: 400;
     font-size: 15px;
 }
-
 
 /* bottoni “link” fuori dal form */
 a.button {
@@ -254,8 +263,7 @@ a.button {
     margin-bottom: 14px;
 }
 
-.form label
-{
+.form label{
     padding: 5px 0;
 }
 
@@ -290,12 +298,9 @@ a.button {
     width: 60%; 
 }
 
-
-
-.section-login {
+.section-login{
 	margin-top: 20px;
 }
-
 
 /*Valutazione in stelle nella pagina review*/
 fieldset textarea{
@@ -304,34 +309,39 @@ fieldset textarea{
 
 .rating-wrapper{
     display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
     justify-content: flex-start; /* a sinistra */
     width: 100%;
     margin-top: 10px;
     gap: 5px;
 }
 
-.rating {
+.rating{
 	direction: rtl; /* stelle da destra a sinistra */ 
-    unicode-bidi: bidi-override; 
+    unicode-bidi: bidi-override;
+    display: flex;
+    gap: 2px;
+    flex-shrink: 0;/* rimangono in linea su mobile */
 }
 
-.rating input {
-    display: none;                /* nasconde i radio */
+.rating input{
+    display: none; /* nasconde i radio */
 }
 
-.rating label {
-    color: #fff;                  /* stella vuota bianca */
+.rating label{
+    color: #fff;  /* stella vuota bianca */
     -webkit-text-stroke: 1px #000; /* contorno nero */
     cursor: pointer;
+    font-size: 14px;
 }
 
 .rating label.fa:before{
     content: "\f006"; /* fa-star-o (vuota) */
 }
 
-/* Hover */
 .rating label:hover, .rating label:hover ~ label {
-    -webkit-text-stroke: 1px #ce0303;       /* rimuove contorno sul rosso */
+    -webkit-text-stroke: 1px #ce0303; /* rimuove contorno sul rosso */
 }
 
 /* Selezionata */
@@ -344,10 +354,7 @@ fieldset textarea{
     content:"\f005"; 
 }  
 
-
-
 /*Riquadri recensioni nelle pagine dei docenti e review*/
-
 .review, fieldset{
     border: 2px solid #ce0303;
     border-left-width: 10px;
@@ -378,7 +385,6 @@ fieldset textarea{
 fieldset ul li{
 	margin: 10px 0;
 }
-
 
 /*INPUT + BOTTONE CERCA*/
 /* barra ricerca: input + bottone affiancati */
@@ -464,7 +470,17 @@ fieldset ul li{
     .bar input{
         width: 30%;
     }
+
+     .rating label.fa {
+        font-size: 16px;
+    }
+
+    .profile-avatar{
+    width: 90px;
+    height: 90px;
+}
   
 }
+
 
 
