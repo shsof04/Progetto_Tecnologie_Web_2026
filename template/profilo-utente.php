@@ -38,7 +38,7 @@ if($img !== "" && strpos($img, "/") === false){
         </p>
 
         <p class="review-text">
-            <?php echo $recensione["testo"]; ?>
+            <?php echo nl2br(htmlspecialchars($recensione["testo"], ENT_QUOTES, 'UTF-8')); ?>
         </p>
 
         <div class="review-actions">
