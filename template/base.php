@@ -67,7 +67,7 @@
     </div>
 
     <footer>
-        <h3>Contatti:</h3>
+        <h3 class="h3-footer">Contatti:</h3>
         <ul>
             <li>Email segreteria: segcesena@unibo.it</li>
             <li>Telefono: +39 0547338300</li>
