@@ -98,11 +98,11 @@
         </ul>
     </fieldset>
 
-    <!-- Recensione -->
-    <fieldset>
-        <label>Scrivi la recensione:
-            <br/>
-            <textarea name="testo" rows="4" cols="50"><?= $templateParams['recensione']['testo'] ?? "" ?></textarea>
+   <!-- Recensione --> 
+    <fieldset> 
+        <label>Scrivi la recensione: 
+            <br/> 
+            <textarea name="testo" rows="4" cols="30"><?= $templateParams['recensione']['testo'] ?? "" ?></textarea> 
         </label><br/>
 
         <div class="rating-wrapper">
